@@ -237,10 +237,10 @@ func (tx AccessListTx) Validate() error {
 		)
 	}
 
-	if !(chainID.Cmp(big.NewInt(9001)) == 0 || chainID.Cmp(big.NewInt(9000)) == 0) {
+	if !(chainID.Cmp(big.NewInt(9001)) == 0 || chainID.Cmp(big.NewInt(9000)) == 0 || chainID.Cmp(big.NewInt(43970)) == 0 || chainID.Cmp(big.NewInt(53970)) == 0) {
 		return errorsmod.Wrapf(
 			errortypes.ErrInvalidChainID,
-			"chain ID must be 9000 or 9001 on Evmos, got %s", chainID,
+			"chain ID must be 9000, 9001, 43970, or 53970 on SERV's Evmos, got %s", chainID,
 		)
 	}
 
