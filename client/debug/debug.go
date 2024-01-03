@@ -32,6 +32,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/tendermint/tendermint/libs/bytes"
 	"github.com/twobitedd/serv/v12/ethereum/eip712"
+	serv "github.com/twobitedd/serv/v12/types"
 )
 
 // Cmd creates a main CLI command

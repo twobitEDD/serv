@@ -35,6 +35,8 @@ import (
 
 	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
 
+	servapp "github.com/twobitedd/serv/v12/app"
+
 	"github.com/twobitedd/serv/v12/types"
 	"github.com/twobitedd/serv/v12/utils"
 )
