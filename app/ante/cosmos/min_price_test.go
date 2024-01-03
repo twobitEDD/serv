@@ -4,10 +4,10 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	cosmosante "github.com/twobitedd/evmos/v12/app/ante/cosmos"
-	"github.com/twobitedd/evmos/v12/testutil"
-	testutiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/utils"
+	cosmosante "github.com/twobitedd/serv/v12/app/ante/cosmos"
+	"github.com/twobitedd/serv/v12/testutil"
+	testutiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/utils"
 )
 
 var execTypes = []struct {
@@ -22,8 +22,8 @@ var execTypes = []struct {
 func (suite *AnteTestSuite) TestMinGasPriceDecorator() {
 	denom := utils.BaseDenom
 	testMsg := banktypes.MsgSend{
-		FromAddress: "evmos1x8fhpj9nmhqk8z9kpgjt95ck2xwyue0ptzkucp",
-		ToAddress:   "evmos1dx67l23hz9l0k9hcher8xz04uj7wf3yu26l2yn",
+		FromAddress: "sx1x8fhpj9nmhqk8z9kpgjt95ck2xwyue0ptzkucp",
+		ToAddress:   "sx1dx67l23hz9l0k9hcher8xz04uj7wf3yu26l2yn",
 		Amount:      sdk.Coins{sdk.Coin{Amount: sdkmath.NewInt(10), Denom: denom}},
 	}
 

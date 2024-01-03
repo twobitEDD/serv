@@ -13,15 +13,15 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/stretchr/testify/suite"
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/x/feemarket/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/x/feemarket/types"
 )
 
 type KeeperTestSuite struct {
 	suite.Suite
 
 	ctx         sdk.Context
-	app         *app.Evmos
+	app         *app.Serv
 	queryClient types.QueryClient
 	address     common.Address
 	consAddress sdk.ConsAddress

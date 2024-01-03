@@ -18,15 +18,15 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/crypto/hd"
-	"github.com/twobitedd/evmos/v12/encoding"
-	"github.com/twobitedd/evmos/v12/indexer"
-	"github.com/twobitedd/evmos/v12/rpc/backend/mocks"
-	rpctypes "github.com/twobitedd/evmos/v12/rpc/types"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/utils"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/crypto/hd"
+	"github.com/twobitedd/serv/v12/encoding"
+	"github.com/twobitedd/serv/v12/indexer"
+	"github.com/twobitedd/serv/v12/rpc/backend/mocks"
+	rpctypes "github.com/twobitedd/serv/v12/rpc/types"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/utils"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 type BackendTestSuite struct {
@@ -51,7 +51,7 @@ func (suite *BackendTestSuite) SetupTest() {
 
 	baseDir := suite.T().TempDir()
 	nodeDirName := "node"
-	clientDir := filepath.Join(baseDir, nodeDirName, "evmoscli")
+	clientDir := filepath.Join(baseDir, nodeDirName, "servcli")
 	keyRing, err := suite.generateTestKeyring(clientDir)
 	if err != nil {
 		panic(err)

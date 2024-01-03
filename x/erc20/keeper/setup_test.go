@@ -15,17 +15,17 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/stretchr/testify/suite"
-	"github.com/twobitedd/evmos/v12/app"
-	ibctesting "github.com/twobitedd/evmos/v12/ibc/testing"
-	"github.com/twobitedd/evmos/v12/x/erc20/types"
-	evm "github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/app"
+	ibctesting "github.com/twobitedd/serv/v12/ibc/testing"
+	"github.com/twobitedd/serv/v12/x/erc20/types"
+	evm "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 type KeeperTestSuite struct {
 	suite.Suite
 
 	ctx              sdk.Context
-	app              *app.Evmos
+	app              *app.Serv
 	queryClientEvm   evm.QueryClient
 	queryClient      types.QueryClient
 	address          common.Address
@@ -40,12 +40,12 @@ type KeeperTestSuite struct {
 	coordinator *ibcgotesting.Coordinator
 
 	// testing chains used for convenience and readability
-	EvmosChain      *ibcgotesting.TestChain
+	ServChain       *ibcgotesting.TestChain
 	IBCOsmosisChain *ibcgotesting.TestChain
 	IBCCosmosChain  *ibcgotesting.TestChain
 
-	pathOsmosisEvmos  *ibctesting.Path
-	pathCosmosEvmos   *ibctesting.Path
+	pathOsmosisServ   *ibctesting.Path
+	pathCosmosServ    *ibctesting.Path
 	pathOsmosisCosmos *ibctesting.Path
 
 	suiteIBCTesting bool
@@ -53,11 +53,11 @@ type KeeperTestSuite struct {
 
 var (
 	s *KeeperTestSuite
-	// sendAndReceiveMsgFee corresponds to the fees paid on Evmos chain when calling the SendAndReceive function
+	// sendAndReceiveMsgFee corresponds to the fees paid on Serv chain when calling the SendAndReceive function
 	// This function makes 3 cosmos txs under the hood
 	sendAndReceiveMsgFee = sdk.NewInt(ibctesting.DefaultFeeAmt * 3)
-	// sendBackCoinsFee corresponds to the fees paid on Evmos chain when calling the SendBackCoins function
-	// or calling the SendAndReceive from another chain to Evmos
+	// sendBackCoinsFee corresponds to the fees paid on Serv chain when calling the SendBackCoins function
+	// or calling the SendAndReceive from another chain to Serv
 	// This function makes 2 cosmos txs under the hood
 	sendBackCoinsFee = sdk.NewInt(ibctesting.DefaultFeeAmt * 2)
 )

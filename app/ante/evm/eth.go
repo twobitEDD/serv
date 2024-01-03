@@ -1,18 +1,18 @@
-// Copyright 2022 Evmos Foundation
-// This file is part of the Evmos Network packages.
+// Copyright 2022 Serv Foundation
+// This file is part of the Serv Network packages.
 //
-// Evmos is free software: you can redistribute it and/or modify
+// Serv is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The Evmos packages are distributed in the hope that it will be useful,
+// The Serv packages are distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
+// along with the Serv packages. If not, see https://github.com/twobitedd/serv/blob/main/LICENSE
 
 package evm
 
@@ -26,11 +26,11 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	anteutils "github.com/twobitedd/evmos/v12/app/ante/utils"
-	"github.com/twobitedd/evmos/v12/types"
-	"github.com/twobitedd/evmos/v12/x/evm/keeper"
-	"github.com/twobitedd/evmos/v12/x/evm/statedb"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	anteutils "github.com/twobitedd/serv/v12/app/ante/utils"
+	"github.com/twobitedd/serv/v12/types"
+	"github.com/twobitedd/serv/v12/x/evm/keeper"
+	"github.com/twobitedd/serv/v12/x/evm/statedb"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
@@ -157,7 +157,7 @@ func (egcd EthGasConsumeDecorator) AnteHandle(ctx sdk.Context, tx sdk.Tx, simula
 		// that is not bubbled up. Thus, the Tx never runs on DeliverMode
 		// Error: "gas wanted -1 is negative"
 		// For more information, see issue #1554
-		// https://github.com/evmos/ethermint/issues/1554
+		// https://github.com/twobitedd/ethermint/issues/1554
 		newCtx := ctx.WithGasMeter(types.NewInfiniteGasMeterWithLimit(gasWanted))
 		return next(newCtx, tx, simulate)
 	}

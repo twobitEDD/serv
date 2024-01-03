@@ -13,11 +13,11 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/utils"
-	"github.com/twobitedd/evmos/v12/x/vesting/types"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/utils"
+	"github.com/twobitedd/serv/v12/x/vesting/types"
 )
 
 // TestClawbackAccount is a struct to store all relevant information that is corresponding
@@ -36,7 +36,7 @@ var err error
 // employee starts before mainnet launch (periodsCliff < lockupPeriod)
 //
 // Example:
-// 21/10 Employee joins Evmos and vesting starts
+// 21/10 Employee joins Serv and vesting starts
 // 22/03 Mainnet launch
 // 22/09 Cliff ends
 // 23/02 Lock ends
@@ -562,7 +562,7 @@ var _ = Describe("Clawback Vesting Accounts", Ordered, func() {
 })
 
 // Example:
-// 21/10 Employee joins Evmos and vesting starts
+// 21/10 Employee joins Serv and vesting starts
 // 22/03 Mainnet launch
 // 22/09 Cliff ends
 // 23/02 Lock ends

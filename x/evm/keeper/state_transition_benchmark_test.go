@@ -12,7 +12,7 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/stretchr/testify/require"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 var templateAccessListTx = &ethtypes.AccessListTx{

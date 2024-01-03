@@ -6,15 +6,15 @@ import (
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	"github.com/twobitedd/evmos/v12/encoding"
-	v2 "github.com/twobitedd/evmos/v12/x/revenue/v1/migrations/v2"
-	v2types "github.com/twobitedd/evmos/v12/x/revenue/v1/migrations/v2/types"
-	"github.com/twobitedd/evmos/v12/x/revenue/v1/types"
+	"github.com/twobitedd/serv/v12/encoding"
+	v2 "github.com/twobitedd/serv/v12/x/revenue/v1/migrations/v2"
+	v2types "github.com/twobitedd/serv/v12/x/revenue/v1/migrations/v2/types"
+	"github.com/twobitedd/serv/v12/x/revenue/v1/types"
 
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
-	"github.com/twobitedd/evmos/v12/app"
+	"github.com/twobitedd/serv/v12/app"
 )
 
 type mockSubspace struct {

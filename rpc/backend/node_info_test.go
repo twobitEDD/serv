@@ -10,9 +10,9 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/spf13/viper"
 	tmrpcclient "github.com/tendermint/tendermint/rpc/client"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/rpc/backend/mocks"
-	"github.com/twobitedd/evmos/v12/types"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/rpc/backend/mocks"
+	"github.com/twobitedd/serv/v12/types"
 	"google.golang.org/grpc/metadata"
 )
 
@@ -254,7 +254,7 @@ func (suite *BackendTestSuite) TestSetEtherbase() {
 				RegisterStatus(client)
 				RegisterValidatorAccount(queryClient, suite.acc)
 				RegisterParams(queryClient, &header, 1)
-				c := sdk.NewDecCoin(types.AttoEvmos, sdk.NewIntFromBigInt(big.NewInt(1)))
+				c := sdk.NewDecCoin(types.AttoServ, sdk.NewIntFromBigInt(big.NewInt(1)))
 				suite.backend.cfg.SetMinGasPrices(sdk.DecCoins{c})
 				delAddr, _ := suite.backend.GetCoinbase()
 				// account, _ := suite.backend.clientCtx.AccountRetriever.GetAccount(suite.backend.clientCtx, delAddr)
@@ -279,7 +279,7 @@ func (suite *BackendTestSuite) TestSetEtherbase() {
 		//		queryClient := suite.backend.queryClient.QueryClient.(*mocks.EVMQueryClient)
 		//		RegisterStatus(client)
 		//		RegisterValidatorAccount(queryClient, suite.acc)
-		//		c := sdk.NewDecCoin(types.AttoEvmos, sdk.NewIntFromBigInt(big.NewInt(1)))
+		//		c := sdk.NewDecCoin(types.AttoServ, sdk.NewIntFromBigInt(big.NewInt(1)))
 		//		suite.backend.cfg.SetMinGasPrices(sdk.DecCoins{c})
 		//		delAddr, _ := suite.backend.GetCoinbase()
 		//		account, _ := suite.backend.clientCtx.AccountRetriever.GetAccount(suite.backend.clientCtx, delAddr)

@@ -1,4 +1,4 @@
-# Evmos Contributor Guidelines
+# Serv Contributor Guidelines
 
 <!-- markdown-link-check-disable -->
 * [General Procedure](#general_procedure)
@@ -20,9 +20,9 @@
 
 ## <span id="general_procedure">General Procedure</span>
 
-Thank you for considering making contributions to Evmos and related repositories!
+Thank you for considering making contributions to Serv and related repositories!
 
-Evmos uses [Tendermint’s coding repo](https://github.com/tendermint/coding)
+Serv uses [Tendermint’s coding repo](https://github.com/tendermint/coding)
 for overall information on repository workflow and standards.
 
 Contributing to this repo can mean many things such as participating in discussion or proposing code changes.
@@ -34,7 +34,7 @@ the following general procedure for contributing has been established:
    resolving.
 2. Participate in thoughtful discussion on that issue.
 3. If you would like to contribute:
-    1. If the issue is a proposal, ensure that the proposal has been accepted by the Evmos team.
+    1. If the issue is a proposal, ensure that the proposal has been accepted by the Serv team.
     2. Ensure that nobody else has already begun working on the same issue. If someone already has, please make sure to
        contact the individual to collaborate.
     3. If nobody has been assigned the issue and you would like to work on it,
@@ -57,7 +57,7 @@ the following general procedure for contributing has been established:
     8. Please make sure to run `make format` before every commit -
        the easiest way to do this is having your editor run it for you upon saving a file.
        Additionally, please ensure that your code is lint compliant by running `make lint`.
-       There are CI tests built into the Evmos repository
+       There are CI tests built into the Serv repository
        and all PR’s will require that these tests pass
        before they can be merged.
 
@@ -72,7 +72,7 @@ Check out our [good first issues](https://github.com/evmos/evmos/issues?q=label%
 
 ## <span id="adr">Architecture Decision Records (ADR)</span>
 
-When proposing an architecture decision for Evmos,
+When proposing an architecture decision for Serv,
 please create an [ADR](https://github.com/evmos/evmos/blob/main/docs/architecture/README.md)
 so further discussions can be made.
 We are following this process so all involved parties are in agreement
@@ -93,7 +93,7 @@ For instance, to create a fork and work on a branch of it, you would:
 1. Create the fork on github, using the fork button.
 2. Go to the original repo checked out locally. (i.e. `$GOPATH/src/github.com/evmos/evmos`)
 3. `git remote rename origin upstream`
-4. `git remote add origin git@github.com:tharsis/evmos.git`
+4. `git remote add origin git@github.com:tharsis/serv.git`
 
 Now `origin` refers to my fork and `upstream` refers to the evmos version.
 So I can `git push -u origin master` to update my fork,
@@ -143,7 +143,7 @@ on `go mod tidy -v`.
 ## <span id="protobuf">Protobuf</span>
 
 We use [Protocol Buffers](https://developers.google.com/protocol-buffers) along
-with [gogoproto](https://github.com/gogo/protobuf) to generate code for use in Evmos.
+with [gogoproto](https://github.com/gogo/protobuf) to generate code for use in Serv.
 
 For deterministic behavior around Protobuf tooling, everything is containerized using Docker. Make sure to have Docker
 installed on your machine, or head to [Docker's website](https://docs.docker.com/get-docker/) to install it.
@@ -185,11 +185,11 @@ For example, in vscode your `.vscode/settings.json` should look like:
 
 ## <span id="testing">Testing</span>
 
-Evmos uses [GitHub Actions](https://github.com/features/actions) for automated testing.
+Serv uses [GitHub Actions](https://github.com/features/actions) for automated testing.
 
 ## <span id="updating_doc">Updating Documentation</span>
 
-If you open a PR on the Evmos repo, it is mandatory to update the relevant documentation in `/docs`. Please refer to
+If you open a PR on the Serv repo, it is mandatory to update the relevant documentation in `/docs`. Please refer to
 the docs subdirectory and make changes accordingly. Prior to approval, the Code owners/approvers may request some
 updates to specific docs.
 
@@ -199,7 +199,7 @@ User-facing repos should adhere to the [trunk based development branching model]
 
 Libraries need not follow the model strictly, but would be wise to.
 
-Evmos utilizes [semantic versioning](https://semver.org/).
+Serv utilizes [semantic versioning](https://semver.org/).
 
 ### <span id="commit_messages">Commit messages</span>
 
@@ -266,5 +266,5 @@ All PRs require two Reviews before merge. When reviewing PRs, please use the fol
 8. Tag the release (use `git tag -a`) and create a release in Github.
 9. Delete the `RC` branches.
 
-**Note**: tharsis’s Evmos team currently cuts releases on a need to have basis.
+**Note**: tharsis’s Serv team currently cuts releases on a need to have basis.
 We will announce a more standardized release schedule as we near production readiness.

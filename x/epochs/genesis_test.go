@@ -6,11 +6,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	feemarkettypes "github.com/twobitedd/evmos/v12/x/feemarket/types"
+	feemarkettypes "github.com/twobitedd/serv/v12/x/feemarket/types"
 
-	simapp "github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/x/epochs"
-	"github.com/twobitedd/evmos/v12/x/epochs/types"
+	simapp "github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/x/epochs"
+	"github.com/twobitedd/serv/v12/x/epochs/types"
 )
 
 func TestEpochsExportGenesis(t *testing.T) {

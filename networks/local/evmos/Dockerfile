@@ -6,7 +6,7 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y $PACKAGES
 
 # Set working directory for the build
-WORKDIR /go/src/github.com/twobitedd/evmos
+WORKDIR /go/src/github.com/twobitedd/serv
 
 # Add source files
 COPY . .
@@ -22,10 +22,10 @@ WORKDIR /
 RUN apt-get update
 
 # Copy over binaries from the build-env
-COPY --from=build-env /go/src/github.com/twobitedd/evmos/build/evmosd /
-COPY --from=build-env /go/src/github.com/twobitedd/evmos/scripts/start-docker.sh /
+COPY --from=build-env /go/src/github.com/twobitedd/serv/build/servd /
+COPY --from=build-env /go/src/github.com/twobitedd/serv/scripts/start-docker.sh /
 
 EXPOSE 26656 26657 1317 9090 8545 8546
 
-# Run evmosd by default, omit entrypoint to ease using container with evmosd
+# Run servd by default, omit entrypoint to ease using container with servd
 ENTRYPOINT ["/bin/bash", "-c"]

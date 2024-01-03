@@ -10,13 +10,13 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/twobitedd/evmos/v12/tests/e2e/upgrade"
-	"github.com/twobitedd/evmos/v12/utils"
+	"github.com/twobitedd/serv/v12/tests/e2e/upgrade"
+	"github.com/twobitedd/serv/v12/utils"
 )
 
 const (
 	// defaultManagerNetwork defines the network used by the upgrade manager
-	defaultManagerNetwork = "evmos-local"
+	defaultManagerNetwork = "serv-local"
 
 	// blocksAfterUpgrade defines how many blocks must be produced after an upgrade is
 	// considered successful
@@ -64,7 +64,7 @@ func (s *IntegrationTestSuite) SetupSuite() {
 	}
 }
 
-// runInitialNode builds a docker image capable of running an Evmos node with the given version.
+// runInitialNode builds a docker image capable of running an Serv node with the given version.
 // After a successful build, it runs the container and checks if the node can produce blocks.
 func (s *IntegrationTestSuite) runInitialNode(version upgrade.VersionConfig) {
 	err := s.upgradeManager.BuildImage(
@@ -74,13 +74,13 @@ func (s *IntegrationTestSuite) runInitialNode(version upgrade.VersionConfig) {
 		".",
 		map[string]string{"INITIAL_VERSION": version.ImageTag},
 	)
-	s.Require().NoError(err, "can't build container with Evmos version: %s", version.ImageTag)
+	s.Require().NoError(err, "can't build container with Serv version: %s", version.ImageTag)
 
 	node := upgrade.NewNode(version.ImageName, version.ImageTag)
 	node.SetEnvVars([]string{fmt.Sprintf("CHAIN_ID=%s", s.upgradeParams.ChainID)})
 
 	err = s.upgradeManager.RunNode(node)
-	s.Require().NoError(err, "can't run node with Evmos version: %s", version)
+	s.Require().NoError(err, "can't run node with Serv version: %s", version)
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
@@ -92,13 +92,13 @@ func (s *IntegrationTestSuite) runInitialNode(version upgrade.VersionConfig) {
 	s.T().Logf("successfully started node with version: [%s]", version.ImageTag)
 }
 
-// runNodeWithCurrentChanges builds a docker image using the current branch of the Evmos repository.
+// runNodeWithCurrentChanges builds a docker image using the current branch of the Serv repository.
 // Before running the node, runs a script to modify some configurations for the tests
 // (e.g.: gov proposal voting period, setup accounts, balances, etc..)
 // After a successful build, runs the container.
 func (s *IntegrationTestSuite) runNodeWithCurrentChanges() {
 	const (
-		name    = "e2e-test/evmos"
+		name    = "e2e-test/serv"
 		version = "latest"
 	)
 	// get the current branch name
@@ -119,7 +119,7 @@ func (s *IntegrationTestSuite) runNodeWithCurrentChanges() {
 	node.SetEnvVars([]string{fmt.Sprintf("CHAIN_ID=%s", s.upgradeParams.ChainID)})
 
 	err = s.upgradeManager.RunNode(node)
-	s.Require().NoError(err, "can't run node Evmos using branch %s", branch)
+	s.Require().NoError(err, "can't run node Serv using branch %s", branch)
 }
 
 // proposeUpgrade submits an upgrade proposal to the chain that schedules an upgrade to
@@ -133,9 +133,9 @@ func (s *IntegrationTestSuite) proposeUpgrade(name, target string) {
 	s.Require().NoError(err, "can't get block height from running node")
 	s.upgradeManager.UpgradeHeight = uint(nodeHeight + upgradeHeightDelta)
 
-	// if Evmos is lower than v10.x.x no need to use the legacy proposal
+	// if Serv is lower than v10.x.x no need to use the legacy proposal
 	currentVersion, err := s.upgradeManager.GetNodeVersion(ctx)
-	s.Require().NoError(err, "can't get current Evmos version")
+	s.Require().NoError(err, "can't get current Serv version")
 	isLegacyProposal := upgrade.CheckLegacyProposal(currentVersion)
 
 	// create the proposal
@@ -144,19 +144,19 @@ func (s *IntegrationTestSuite) proposeUpgrade(name, target string) {
 		s.upgradeParams.ChainID,
 		s.upgradeManager.UpgradeHeight,
 		isLegacyProposal,
-		"--fees=500aevmos",
+		"--fees=500aserv",
 		"--gas=500000",
 	)
 	s.Require().NoErrorf(
 		err,
-		"can't create the proposal to upgrade Evmos to %s at height %d with name %s",
+		"can't create the proposal to upgrade Serv to %s at height %d with name %s",
 		target, s.upgradeManager.UpgradeHeight, name,
 	)
 
 	outBuf, errBuf, err := s.upgradeManager.RunExec(ctx, exec)
 	s.Require().NoErrorf(
 		err,
-		"failed to submit proposal to upgrade Evmos to %s at height %d\nstdout: %s,\nstderr: %s",
+		"failed to submit proposal to upgrade Serv to %s at height %d\nstdout: %s,\nstderr: %s",
 		target, s.upgradeManager.UpgradeHeight, outBuf.String(), errBuf.String(),
 	)
 
@@ -176,7 +176,7 @@ func (s *IntegrationTestSuite) proposeUpgrade(name, target string) {
 func (s *IntegrationTestSuite) voteForProposal(id int) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	exec, err := s.upgradeManager.CreateVoteProposalExec(s.upgradeParams.ChainID, id, "--fees=500aevmos", "--gas=500000")
+	exec, err := s.upgradeManager.CreateVoteProposalExec(s.upgradeParams.ChainID, id, "--fees=500aserv", "--gas=500000")
 	s.Require().NoError(err, "can't create vote for proposal exec")
 	outBuf, errBuf, err := s.upgradeManager.RunExec(ctx, exec)
 	s.Require().NoErrorf(
@@ -205,7 +205,7 @@ func (s *IntegrationTestSuite) upgrade(targetRepo, targetVersion string) {
 	buildDir := strings.Split(s.upgradeParams.MountPath, ":")[0]
 
 	s.T().Log("exporting state to local...")
-	// export node .evmosd to local build/
+	// export node .servd to local build/
 	err = s.upgradeManager.ExportState(buildDir)
 	s.Require().NoError(err, "can't export node container state to local")
 
@@ -217,7 +217,7 @@ func (s *IntegrationTestSuite) upgrade(targetRepo, targetVersion string) {
 
 	node := upgrade.NewNode(targetRepo, targetVersion)
 	node.Mount(s.upgradeParams.MountPath)
-	node.SetCmd([]string{"evmosd", "start", fmt.Sprintf("--chain-id=%s", s.upgradeParams.ChainID)})
+	node.SetCmd([]string{"servd", "start", fmt.Sprintf("--chain-id=%s", s.upgradeParams.ChainID)})
 	err = s.upgradeManager.RunNode(node)
 	s.Require().NoError(err, "can't mount and run upgraded node container")
 

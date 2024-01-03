@@ -12,10 +12,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/twobitedd/evmos/v12/x/erc20/keeper"
-	"github.com/twobitedd/evmos/v12/x/erc20/types"
-	"github.com/twobitedd/evmos/v12/x/evm/statedb"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/x/erc20/keeper"
+	"github.com/twobitedd/serv/v12/x/erc20/types"
+	"github.com/twobitedd/serv/v12/x/evm/statedb"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestConvertCoinNativeCoin() {

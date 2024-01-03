@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-// CreateModuleQueryExec creates a Evmos module query
+// CreateModuleQueryExec creates a Serv module query
 func (m *Manager) CreateModuleQueryExec(moduleName, subCommand, chainID string) (string, error) {
 	cmd := []string{
-		"evmosd",
+		"servd",
 		"q",
 		moduleName,
 		subCommand,

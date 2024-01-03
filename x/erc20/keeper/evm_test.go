@@ -8,12 +8,12 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/mock"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 
-	"github.com/twobitedd/evmos/v12/contracts"
-	"github.com/twobitedd/evmos/v12/x/erc20/keeper"
-	"github.com/twobitedd/evmos/v12/x/erc20/types"
+	"github.com/twobitedd/serv/v12/contracts"
+	"github.com/twobitedd/serv/v12/x/erc20/keeper"
+	"github.com/twobitedd/serv/v12/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryERC20() {

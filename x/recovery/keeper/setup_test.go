@@ -9,19 +9,19 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	ibctesting "github.com/twobitedd/evmos/v12/ibc/testing"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/utils"
-	feemarkettypes "github.com/twobitedd/evmos/v12/x/feemarket/types"
+	ibctesting "github.com/twobitedd/serv/v12/ibc/testing"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/utils"
+	feemarkettypes "github.com/twobitedd/serv/v12/x/feemarket/types"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
 
-	"github.com/twobitedd/evmos/v12/app"
-	claimstypes "github.com/twobitedd/evmos/v12/x/claims/types"
-	"github.com/twobitedd/evmos/v12/x/recovery/types"
+	"github.com/twobitedd/serv/v12/app"
+	claimstypes "github.com/twobitedd/serv/v12/x/claims/types"
+	"github.com/twobitedd/serv/v12/x/recovery/types"
 )
 
 var (
@@ -35,7 +35,7 @@ type KeeperTestSuite struct {
 
 	ctx sdk.Context
 
-	app         *app.Evmos
+	app         *app.Serv
 	queryClient types.QueryClient
 }
 
@@ -45,7 +45,7 @@ func (suite *KeeperTestSuite) SetupTest() {
 
 	suite.app = app.Setup(false, feemarkettypes.DefaultGenesisState())
 	header := testutil.NewHeader(
-		1, time.Now().UTC(), "evmos_9001-1", consAddress, nil, nil,
+		1, time.Now().UTC(), "serv_53970-1", consAddress, nil, nil,
 	)
 	suite.ctx = suite.app.BaseApp.NewContext(false, header)
 
@@ -72,12 +72,12 @@ type IBCTestingSuite struct {
 	coordinator *ibcgotesting.Coordinator
 
 	// testing chains used for convenience and readability
-	EvmosChain      *ibcgotesting.TestChain
+	ServChain       *ibcgotesting.TestChain
 	IBCOsmosisChain *ibcgotesting.TestChain
 	IBCCosmosChain  *ibcgotesting.TestChain
 
-	pathOsmosisEvmos  *ibctesting.Path
-	pathCosmosEvmos   *ibctesting.Path
+	pathOsmosisServ   *ibctesting.Path
+	pathCosmosServ    *ibctesting.Path
 	pathOsmosisCosmos *ibctesting.Path
 }
 

@@ -1,18 +1,18 @@
-// Copyright 2022 Evmos Foundation
-// This file is part of the Evmos Network packages.
+// Copyright 2022 Serv Foundation
+// This file is part of the Serv Network packages.
 //
-// Evmos is free software: you can redistribute it and/or modify
+// Serv is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The Evmos packages are distributed in the hope that it will be useful,
+// The Serv packages are distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
+// along with the Serv packages. If not, see https://github.com/twobitedd/serv/blob/main/LICENSE
 package types
 
 import (
@@ -25,7 +25,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/twobitedd/evmos/v12/types"
+	"github.com/twobitedd/serv/v12/types"
 )
 
 func NewDynamicFeeTx(tx *ethtypes.Transaction) (*DynamicFeeTx, error) {
@@ -272,14 +272,14 @@ func (tx DynamicFeeTx) Validate() error {
 	// if !(chainID.Cmp(big.NewInt(9001)) == 0 || chainID.Cmp(big.NewInt(9000)) == 0) {
 	// 	return errorsmod.Wrapf(
 	// 		errortypes.ErrInvalidChainID,
-	// 		"chain ID must be 9000 or 9001 on Evmos, got %s", chainID,
+	// 		"chain ID must be 9000 or 9001 on Serv, got %s", chainID,
 	// 	)
 	// }
 
 	if !(chainID.Cmp(big.NewInt(9001)) == 0 || chainID.Cmp(big.NewInt(9000)) == 0 || chainID.Cmp(big.NewInt(43970)) == 0 || chainID.Cmp(big.NewInt(53970)) == 0) {
 		return errorsmod.Wrapf(
 			errortypes.ErrInvalidChainID,
-			"chain ID must be 9000, 9001, 43970, or 53970 on SERV's Evmos, got %s", chainID,
+			"chain ID must be 9000, 9001, 43970, or 53970 on SERV's Serv, got %s", chainID,
 		)
 	}
 

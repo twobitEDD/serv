@@ -25,18 +25,18 @@ import (
 
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/server/config"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/utils"
-	"github.com/twobitedd/evmos/v12/x/evm/statedb"
-	evm "github.com/twobitedd/evmos/v12/x/evm/types"
-	feemarkettypes "github.com/twobitedd/evmos/v12/x/feemarket/types"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/server/config"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/utils"
+	"github.com/twobitedd/serv/v12/x/evm/statedb"
+	evm "github.com/twobitedd/serv/v12/x/evm/types"
+	feemarkettypes "github.com/twobitedd/serv/v12/x/feemarket/types"
 
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/contracts"
-	"github.com/twobitedd/evmos/v12/x/erc20/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/contracts"
+	"github.com/twobitedd/serv/v12/x/erc20/types"
 
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
@@ -50,7 +50,7 @@ type KeeperTestSuite struct {
 	suite.Suite
 
 	ctx              sdk.Context
-	app              *app.Evmos
+	app              *app.Serv
 	queryClientEvm   evm.QueryClient
 	queryClient      types.QueryClient
 	address          common.Address
@@ -95,7 +95,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 	// init app
 	suite.app = app.Setup(false, feemarkettypes.DefaultGenesisState())
 	header := testutil.NewHeader(
-		1, time.Now().UTC(), "evmos_9001-1", suite.consAddress, nil, nil,
+		1, time.Now().UTC(), "serv_53970-1", suite.consAddress, nil, nil,
 	)
 	suite.ctx = suite.app.BaseApp.NewContext(false, header)
 

@@ -1,33 +1,33 @@
-// Copyright 2022 Evmos Foundation
-// This file is part of the Evmos Network packages.
+// Copyright 2022 Serv Foundation
+// This file is part of the Serv Network packages.
 //
-// Evmos is free software: you can redistribute it and/or modify
+// Serv is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The Evmos packages are distributed in the hope that it will be useful,
+// The Serv packages are distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
+// along with the Serv packages. If not, see https://github.com/twobitedd/serv/blob/main/LICENSE
 
 package keeper
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	evmostypes "github.com/twobitedd/evmos/v12/types"
+	servtypes "github.com/twobitedd/serv/v12/types"
 
-	utils "github.com/twobitedd/evmos/v12/utils"
-	incentivestypes "github.com/twobitedd/evmos/v12/x/incentives/types"
-	"github.com/twobitedd/evmos/v12/x/inflation/types"
+	utils "github.com/twobitedd/serv/v12/utils"
+	incentivestypes "github.com/twobitedd/serv/v12/x/incentives/types"
+	"github.com/twobitedd/serv/v12/x/inflation/types"
 )
 
 // 200M token at year 4 allocated to the team
-var teamAlloc = sdk.NewInt(200_000_000).Mul(evmostypes.PowerReduction)
+var teamAlloc = sdk.NewInt(200_000_000).Mul(servtypes.PowerReduction)
 
 // MintAndAllocateInflation performs inflation minting and allocation
 func (k Keeper) MintAndAllocateInflation(

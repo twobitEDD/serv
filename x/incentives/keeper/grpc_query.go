@@ -1,18 +1,18 @@
-// Copyright 2022 Evmos Foundation
-// This file is part of the Evmos Network packages.
+// Copyright 2022 Serv Foundation
+// This file is part of the Serv Network packages.
 //
-// Evmos is free software: you can redistribute it and/or modify
+// Serv is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The Evmos packages are distributed in the hope that it will be useful,
+// The Serv packages are distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
+// along with the Serv packages. If not, see https://github.com/twobitedd/serv/blob/main/LICENSE
 
 package keeper
 
@@ -29,9 +29,9 @@ import (
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/types/query"
 	"github.com/ethereum/go-ethereum/common"
-	evmostypes "github.com/twobitedd/evmos/v12/types"
+	servtypes "github.com/twobitedd/serv/v12/types"
 
-	"github.com/twobitedd/evmos/v12/x/incentives/types"
+	"github.com/twobitedd/serv/v12/x/incentives/types"
 )
 
 var _ types.QueryServer = Keeper{}
@@ -90,7 +90,7 @@ func (k Keeper) Incentive(
 	}
 
 	// check if the contract is a hex address
-	if err := evmostypes.ValidateAddress(req.Contract); err != nil {
+	if err := servtypes.ValidateAddress(req.Contract); err != nil {
 		return nil, status.Errorf(
 			codes.InvalidArgument,
 			"invalid format for contract %s, should be hex ('0x...')", req.Contract,
@@ -126,7 +126,7 @@ func (k Keeper) GasMeters(
 	}
 
 	// check if the contract is a hex address
-	if err := evmostypes.ValidateAddress(req.Contract); err != nil {
+	if err := servtypes.ValidateAddress(req.Contract); err != nil {
 		return nil, status.Errorf(
 			codes.InvalidArgument,
 			errorsmod.Wrapf(errortypes.ErrInvalidAddress, "invalid contract address %s", req.Contract).Error(),
@@ -185,7 +185,7 @@ func (k Keeper) GasMeter(
 	}
 
 	// check if the contract is a hex address
-	if err := evmostypes.ValidateAddress(req.Contract); err != nil {
+	if err := servtypes.ValidateAddress(req.Contract); err != nil {
 		return nil, status.Errorf(
 			codes.InvalidArgument,
 			errorsmod.Wrapf(errortypes.ErrInvalidAddress, "invalid contract address %s", req.Contract).Error(),
@@ -200,7 +200,7 @@ func (k Keeper) GasMeter(
 	}
 
 	// check if the participant is a hex address
-	if err := evmostypes.ValidateAddress(req.Participant); err != nil {
+	if err := servtypes.ValidateAddress(req.Participant); err != nil {
 		return nil, status.Errorf(
 			codes.InvalidArgument,
 			errorsmod.Wrapf(errortypes.ErrInvalidAddress, "invalid participant address %s", req.Participant).Error(),

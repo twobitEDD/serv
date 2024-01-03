@@ -8,10 +8,10 @@ import (
 	sdktestutil "github.com/cosmos/cosmos-sdk/testutil/testdata"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/feegrant"
-	cosmosante "github.com/twobitedd/evmos/v12/app/ante/cosmos"
-	"github.com/twobitedd/evmos/v12/testutil"
-	testutiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/utils"
+	cosmosante "github.com/twobitedd/serv/v12/app/ante/cosmos"
+	"github.com/twobitedd/serv/v12/testutil"
+	testutiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/utils"
 )
 
 func (suite *AnteTestSuite) TestDeductFeeDecorator() {

@@ -13,19 +13,19 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/utils"
-	feemarkettypes "github.com/twobitedd/evmos/v12/x/feemarket/types"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/utils"
+	feemarkettypes "github.com/twobitedd/serv/v12/x/feemarket/types"
 
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/x/erc20"
-	"github.com/twobitedd/evmos/v12/x/erc20/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/x/erc20"
+	"github.com/twobitedd/serv/v12/x/erc20/types"
 )
 
 type GenesisTestSuite struct {
 	suite.Suite
 	ctx     sdk.Context
-	app     *app.Evmos
+	app     *app.Serv
 	genesis types.GenesisState
 }
 

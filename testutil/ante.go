@@ -2,8 +2,8 @@ package testutil
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/encoding"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/encoding"
 )
 
 // NextFn is a no-op function that returns the context and no error in order to mock

@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/suite"
-	"github.com/twobitedd/evmos/v12/x/erc20/types"
+	"github.com/twobitedd/serv/v12/x/erc20/types"
 )
 
 type GenesisTestSuite struct {

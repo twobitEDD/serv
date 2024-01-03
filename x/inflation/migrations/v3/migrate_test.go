@@ -6,8 +6,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
-	v3 "github.com/twobitedd/evmos/v12/x/inflation/migrations/v3"
-	"github.com/twobitedd/evmos/v12/x/inflation/types"
+	v3 "github.com/twobitedd/serv/v12/x/inflation/migrations/v3"
+	"github.com/twobitedd/serv/v12/x/inflation/types"
 )
 
 func TestMigrate(t *testing.T) {

@@ -2,7 +2,7 @@ package keeper_test
 
 import (
 	"github.com/tendermint/tendermint/abci/types"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestEndBlock() {

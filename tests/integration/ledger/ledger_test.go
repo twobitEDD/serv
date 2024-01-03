@@ -9,12 +9,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	"github.com/cosmos/cosmos-sdk/simapp/params"
 
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/crypto/hd"
-	"github.com/twobitedd/evmos/v12/encoding"
-	"github.com/twobitedd/evmos/v12/tests/integration/ledger/mocks"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/crypto/hd"
+	"github.com/twobitedd/serv/v12/encoding"
+	"github.com/twobitedd/serv/v12/tests/integration/ledger/mocks"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
 
 	"github.com/spf13/cobra"
 
@@ -52,14 +52,14 @@ var _ = Describe("Ledger CLI and keyring functionality: ", func() {
 	ledgerKey := "ledger_key"
 
 	s.SetupTest()
-	s.SetupEvmosApp()
+	s.SetupServApp()
 
 	Describe("Adding a key from ledger using the CLI", func() {
 		BeforeEach(func() {
 			krHome = s.T().TempDir()
 			encCfg = encoding.MakeConfig(app.ModuleBasics)
 
-			cmd = s.evmosAddKeyCmd()
+			cmd = s.servAddKeyCmd()
 
 			mockedIn = sdktestutil.ApplyMockIODiscardOutErr(cmd)
 
@@ -107,7 +107,7 @@ var _ = Describe("Ledger CLI and keyring functionality: ", func() {
 			var err error
 
 			// create add key command
-			cmd = s.evmosAddKeyCmd()
+			cmd = s.servAddKeyCmd()
 
 			mockedIn = sdktestutil.ApplyMockIODiscardOutErr(cmd)
 			mocks.MGetAddressPubKeySECP256K1(s.ledger, s.accAddr, s.pubKey)
@@ -174,7 +174,7 @@ var _ = Describe("Ledger CLI and keyring functionality: ", func() {
 						s.app.BankKeeper,
 						s.accAddr,
 						sdk.NewCoins(
-							sdk.NewCoin("aevmos", sdk.NewInt(100000000000000)),
+							sdk.NewCoin("aserv", sdk.NewInt(100000000000000)),
 						),
 					)
 					s.Require().NoError(err)
@@ -199,7 +199,7 @@ var _ = Describe("Ledger CLI and keyring functionality: ", func() {
 					cmd.SetArgs([]string{
 						ledgerKey,
 						receiverAccAddr.String(),
-						sdk.NewCoin("aevmos", sdk.NewInt(1000)).String(),
+						sdk.NewCoin("aserv", sdk.NewInt(1000)).String(),
 						s.FormatFlag(flags.FlagUseLedger),
 						s.FormatFlag(flags.FlagSkipConfirmation),
 					})
@@ -217,7 +217,7 @@ var _ = Describe("Ledger CLI and keyring functionality: ", func() {
 					cmd.SetArgs([]string{
 						ledgerKey,
 						receiverAccAddr.String(),
-						sdk.NewCoin("aevmos", sdk.NewInt(1000)).String(),
+						sdk.NewCoin("aserv", sdk.NewInt(1000)).String(),
 						s.FormatFlag(flags.FlagUseLedger),
 						s.FormatFlag(flags.FlagSkipConfirmation),
 					})

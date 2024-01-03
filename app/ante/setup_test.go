@@ -11,12 +11,12 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/encoding"
-	"github.com/twobitedd/evmos/v12/testutil"
-	"github.com/twobitedd/evmos/v12/utils"
-	feemarkettypes "github.com/twobitedd/evmos/v12/x/feemarket/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/encoding"
+	"github.com/twobitedd/serv/v12/testutil"
+	"github.com/twobitedd/serv/v12/utils"
+	feemarkettypes "github.com/twobitedd/serv/v12/x/feemarket/types"
 )
 
 var s *AnteTestSuite
@@ -26,7 +26,7 @@ type AnteTestSuite struct {
 
 	ctx       sdk.Context
 	clientCtx client.Context
-	app       *app.Evmos
+	app       *app.Serv
 	denom     string
 }
 

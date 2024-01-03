@@ -12,13 +12,13 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	evmostypes "github.com/twobitedd/evmos/v12/types"
-	inflationtypes "github.com/twobitedd/evmos/v12/x/inflation/types"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	servtypes "github.com/twobitedd/serv/v12/types"
+	inflationtypes "github.com/twobitedd/serv/v12/x/inflation/types"
 
-	"github.com/twobitedd/evmos/v12/x/claims/types"
+	"github.com/twobitedd/serv/v12/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestGetClaimableAmountForAction() {
@@ -760,8 +760,8 @@ func (suite *KeeperTestSuite) TestDelegationAutoWithdrawAndDelegateMore() {
 	err = suite.app.StakingKeeper.AfterValidatorCreated(suite.ctx, validator.GetOperator())
 	suite.Require().NoError(err)
 
-	validator, _ = validator.AddTokensFromDel(sdk.TokensFromConsensusPower(1, evmostypes.PowerReduction))
-	delAmount := sdk.TokensFromConsensusPower(1, evmostypes.PowerReduction)
+	validator, _ = validator.AddTokensFromDel(sdk.TokensFromConsensusPower(1, servtypes.PowerReduction))
+	delAmount := sdk.TokensFromConsensusPower(1, servtypes.PowerReduction)
 
 	err = testutil.FundAccount(suite.ctx, suite.app.BankKeeper, addrs[1], sdk.NewCoins(sdk.NewCoin(params.GetClaimsDenom(), delAmount)))
 	suite.Require().NoError(err)
@@ -1053,7 +1053,7 @@ func (suite *KeeperTestSuite) TestClawbackEmptyAccountsAirdrop() {
 	}{
 		{
 			name:           "address active",
-			address:        "evmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
+			address:        "sx1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
 			sequence:       1,
 			expectClawback: false,
 			claimsRecord: types.ClaimsRecord{
@@ -1063,7 +1063,7 @@ func (suite *KeeperTestSuite) TestClawbackEmptyAccountsAirdrop() {
 		},
 		{
 			name:           "address inactive",
-			address:        "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+			address:        "sx1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 			sequence:       0,
 			expectClawback: true,
 			claimsRecord: types.ClaimsRecord{
@@ -1077,7 +1077,7 @@ func (suite *KeeperTestSuite) TestClawbackEmptyAccountsAirdrop() {
 		addr, err := sdk.AccAddressFromBech32(tc.address)
 		suite.Require().NoError(err, tc.name)
 
-		acc := &evmostypes.EthAccount{
+		acc := &servtypes.EthAccount{
 			BaseAccount: authtypes.NewBaseAccount(sdk.AccAddress(addr.Bytes()), nil, 0, 0),
 			CodeHash:    common.BytesToHash(crypto.Keccak256(nil)).String(),
 		}

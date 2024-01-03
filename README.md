@@ -4,15 +4,15 @@ parent:
 -->
 
 <div align="center">
-  <h1> Evmos </h1>
+  <h1> Serv </h1>
 </div>
 
 <div align="center">
   <a href="https://github.com/evmos/evmos/releases/latest">
-    <img alt="Version" src="https://img.shields.io/github/tag/tharsis/evmos.svg" />
+    <img alt="Version" src="https://img.shields.io/github/tag/tharsis/serv.svg" />
   </a>
   <a href="https://github.com/evmos/evmos/blob/main/LICENSE">
-    <img alt="License: Apache-2.0" src="https://img.shields.io/github/license/tharsis/evmos.svg" />
+    <img alt="License: Apache-2.0" src="https://img.shields.io/github/license/tharsis/serv.svg" />
   </a>
   <a href="https://pkg.go.dev/github.com/evmos/evmos">
     <img alt="GoDoc" src="https://godoc.org/github.com/evmos/evmos?status.svg" />
@@ -34,19 +34,19 @@ parent:
   <a href="https://codecov.io/gh/evmos/evmos">
     <img alt="Code Coverage" src="https://codecov.io/gh/evmos/evmos/branch/main/graph/badge.svg" />
   </a>
-  <a href="https://twitter.com/EvmosOrg">
-    <img alt="Twitter Follow Evmos" src="https://img.shields.io/twitter/follow/EvmosOrg"/>
+  <a href="https://twitter.com/ServOrg">
+    <img alt="Twitter Follow Serv" src="https://img.shields.io/twitter/follow/ServOrg"/>
   </a>
 </div>
 
-Evmos is a scalable, high-throughput Proof-of-Stake blockchain
+Serv is a scalable, high-throughput Proof-of-Stake blockchain
 that is fully compatible and interoperable with Ethereum.
 It's built using the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk/)
 which runs on top of the [Tendermint Core](https://github.com/tendermint/tendermint) consensus engine.
 
 ## Documentation
 
-Our documentation is hosted in a [separate repository](https://github.com/evmos/docs) and can be found at [docs.evmos.org](https://docs.evmos.org).
+Our documentation is hosted in a [separate repository](https://github.com/evmos/docs) and can be found at [docs.servprotocol.io](https://docs.servprotocol.io).
 Head over there and check it out.
 
 **Note**: Requires [Go 1.20+](https://golang.org/dl/)
@@ -54,7 +54,7 @@ Head over there and check it out.
 ## Installation
 
 For prerequisites and detailed build instructions
-please read the [Installation](https://docs.evmos.org/protocol/evmos-cli) instructions.
+please read the [Installation](https://docs.servprotocol.io/protocol/evmos-cli) instructions.
 Once the dependencies are installed, run:
 
 ```bash
@@ -65,17 +65,17 @@ Or check out the latest [release](https://github.com/evmos/evmos/releases).
 
 ## Quick Start
 
-To learn how the Evmos works from a high-level perspective,
-go to the [Protocol Overview](https://docs.evmos.org/protocol) section from the documentation.
-You can also check the instructions to [Run a Node](https://docs.evmos.org/protocol/evmos-cli#run-an-evmos-node).
+To learn how the Serv works from a high-level perspective,
+go to the [Protocol Overview](https://docs.servprotocol.io/protocol) section from the documentation.
+You can also check the instructions to [Run a Node](https://docs.servprotocol.io/protocol/evmos-cli#run-an-evmos-node).
 
 ## Community
 
-The following chat channels and forums are a great spot to ask questions about Evmos:
+The following chat channels and forums are a great spot to ask questions about Serv:
 
-- [Evmos Twitter](https://twitter.com/EvmosOrg)
-- [Evmos Discord](https://discord.gg/evmos)
-- [Evmos Forum](https://commonwealth.im/evmos)
+- [Serv Twitter](https://twitter.com/ServOrg)
+- [Serv Discord](https://discord.gg/evmos)
+- [Serv Forum](https://commonwealth.im/evmos)
 
 ## Contributing
 

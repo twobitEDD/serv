@@ -18,18 +18,18 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/contracts"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/encoding"
-	"github.com/twobitedd/evmos/v12/server/config"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	evmostypes "github.com/twobitedd/evmos/v12/types"
-	"github.com/twobitedd/evmos/v12/utils"
-	epochstypes "github.com/twobitedd/evmos/v12/x/epochs/types"
-	evm "github.com/twobitedd/evmos/v12/x/evm/types"
-	"github.com/twobitedd/evmos/v12/x/incentives/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/contracts"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/encoding"
+	"github.com/twobitedd/serv/v12/server/config"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	servtypes "github.com/twobitedd/serv/v12/types"
+	"github.com/twobitedd/serv/v12/utils"
+	epochstypes "github.com/twobitedd/serv/v12/x/epochs/types"
+	evm "github.com/twobitedd/serv/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/x/incentives/types"
 )
 
 var (
@@ -79,7 +79,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 
 	// Set Context
 	header := testutil.NewHeader(
-		1, time.Now().UTC(), "evmos_9001-1", suite.consAddress, nil, nil,
+		1, time.Now().UTC(), "serv_53970-1", suite.consAddress, nil, nil,
 	)
 	suite.ctx = suite.app.BaseApp.NewContext(checkTx, header)
 
@@ -103,7 +103,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 		suite.app.EpochsKeeper.SetEpochInfo(suite.ctx, epoch)
 	}
 
-	acc := &evmostypes.EthAccount{
+	acc := &servtypes.EthAccount{
 		BaseAccount: authtypes.NewBaseAccount(sdk.AccAddress(suite.address.Bytes()), nil, 0, 0),
 		CodeHash:    common.BytesToHash(crypto.Keccak256(nil)).String(),
 	}

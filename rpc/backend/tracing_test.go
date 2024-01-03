@@ -11,10 +11,10 @@ import (
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 	"github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/indexer"
-	"github.com/twobitedd/evmos/v12/rpc/backend/mocks"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/indexer"
+	"github.com/twobitedd/serv/v12/rpc/backend/mocks"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestTraceTransaction() {

@@ -14,17 +14,17 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/contracts"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	evmostypes "github.com/twobitedd/evmos/v12/types"
-	"github.com/twobitedd/evmos/v12/utils"
-	"github.com/twobitedd/evmos/v12/x/claims/types"
-	evm "github.com/twobitedd/evmos/v12/x/evm/types"
-	feemarkettypes "github.com/twobitedd/evmos/v12/x/feemarket/types"
-	incentivestypes "github.com/twobitedd/evmos/v12/x/incentives/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/contracts"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	servtypes "github.com/twobitedd/serv/v12/types"
+	"github.com/twobitedd/serv/v12/utils"
+	"github.com/twobitedd/serv/v12/x/claims/types"
+	evm "github.com/twobitedd/serv/v12/x/evm/types"
+	feemarkettypes "github.com/twobitedd/serv/v12/x/feemarket/types"
+	incentivestypes "github.com/twobitedd/serv/v12/x/incentives/types"
 )
 
 func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
@@ -41,7 +41,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 
 	suite.app = app.Setup(false, feemarkettypes.DefaultGenesisState())
 	header := testutil.NewHeader(
-		1, time.Now().UTC(), "evmos_9001-1", consAddress, nil, nil,
+		1, time.Now().UTC(), "serv_53970-1", consAddress, nil, nil,
 	)
 	suite.ctx = suite.app.BaseApp.NewContext(false, header)
 
@@ -107,8 +107,8 @@ func (suite *KeeperTestSuite) CommitAfter(t time.Duration) {
 	suite.queryClientEvm = evm.NewQueryClient(queryHelperEvm)
 }
 
-func newEthAccount(baseAccount *authtypes.BaseAccount) evmostypes.EthAccount {
-	return evmostypes.EthAccount{
+func newEthAccount(baseAccount *authtypes.BaseAccount) servtypes.EthAccount {
+	return servtypes.EthAccount{
 		BaseAccount: baseAccount,
 		CodeHash:    common.BytesToHash(crypto.Keccak256(nil)).String(),
 	}

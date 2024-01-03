@@ -6,13 +6,13 @@ TMVERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::'
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 BINDIR ?= $(GOPATH)/bin
-SERV_BINARY = evmosd
-SERV_DIR = evmos
+SERV_BINARY = servd
+SERV_DIR = serv
 BUILDDIR ?= $(CURDIR)/build
-HTTPS_GIT := https://github.com/twobitedd/evmos.git
+HTTPS_GIT := https://github.com/twobitedd/serv.git
 DOCKER := $(shell which docker)
-NAMESPACE := tharsishq
-PROJECT := evmos
+NAMESPACE := twobitedd
+PROJECT := serv
 DOCKER_IMAGE := $(NAMESPACE)/$(PROJECT)
 COMMIT_HASH := $(shell git rev-parse --short=7 HEAD)
 DOCKER_TAG := $(COMMIT_HASH)
@@ -61,7 +61,7 @@ build_tags := $(strip $(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=evmos \
+ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=serv \
           -X github.com/cosmos/cosmos-sdk/version.AppName=$(SERV_BINARY) \
           -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
           -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
@@ -133,7 +133,7 @@ build-reproducible: go.sum
 	$(DOCKER) rm latest-build || true
 	$(DOCKER) run --volume=$(CURDIR):/sources:ro \
         --env TARGET_PLATFORMS='linux/amd64' \
-        --env APP=evmosd \
+        --env APP=servd \
         --env VERSION=$(VERSION) \
         --env COMMIT=$(COMMIT) \
         --env CGO_ENABLED=1 \
@@ -148,12 +148,12 @@ build-docker:
 	$(DOCKER) tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest
 	# docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:${COMMIT_HASH}
 	# update old container
-	$(DOCKER) rm evmos || true
+	$(DOCKER) rm serv || true
 	# create a new container from the latest image
-	$(DOCKER) create --name evmos -t -i ${DOCKER_IMAGE}:latest evmos
+	$(DOCKER) create --name serv -t -i ${DOCKER_IMAGE}:latest serv
 	# move the binaries to the ./build directory
 	mkdir -p ./build/
-	$(DOCKER) cp evmos:/usr/bin/evmosd ./build/
+	$(DOCKER) cp serv:/usr/bin/servd ./build/
 
 push-docker: build-docker
 	$(DOCKER) push ${DOCKER_IMAGE}:${DOCKER_TAG}
@@ -279,7 +279,7 @@ update-swagger-docs: statik
 .PHONY: update-swagger-docs
 
 godocs:
-	@echo "--> Wait a few seconds and visit http://localhost:6060/pkg/github.com/twobitedd/evmos"
+	@echo "--> Wait a few seconds and visit http://localhost:6060/pkg/github.com/twobitedd/serv"
 	godoc -http=:6060
 
 ###############################################################################
@@ -313,7 +313,7 @@ test-e2e:
 		make build-docker; \
 	fi
 	@mkdir -p ./build
-	@rm -rf build/.evmosd
+	@rm -rf build/.servd
 	@INITIAL_VERSION=$(INITIAL_VERSION) TARGET_VERSION=$(TARGET_VERSION) \
 	E2E_SKIP_CLEANUP=$(E2E_SKIP_CLEANUP) MOUNT_PATH=$(MOUNT_PATH) CHAIN_ID=$(CHAIN_ID) \
 	go test -v ./tests/e2e -run ^TestIntegrationTestSuite$
@@ -489,7 +489,7 @@ localnet-build:
 
 # Start a 4-node testnet locally
 localnet-start: localnet-stop localnet-build
-	@if ! [ -f build/node0/$(SERV_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/evmos:Z evmos/node "./evmosd testnet init-files --v 4 -o /evmos --keyring-backend=test --starting-ip-address 192.167.10.2"; fi
+	@if ! [ -f build/node0/$(SERV_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/serv:Z serv/node "./servd testnet init-files --v 4 -o /serv --keyring-backend=test --starting-ip-address 192.167.10.2"; fi
 	docker-compose up -d
 
 # Stop testnet
@@ -505,15 +505,15 @@ localnet-clean:
 localnet-unsafe-reset:
 	docker-compose down
 ifeq ($(OS),Windows_NT)
-	@docker run --rm -v $(CURDIR)\build\node0\evmosd:/evmos\Z evmos/node "./evmosd tendermint unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\build\node1\evmosd:/evmos\Z evmos/node "./evmosd tendermint unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\build\node2\evmosd:/evmos\Z evmos/node "./evmosd tendermint unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\build\node3\evmosd:/evmos\Z evmos/node "./evmosd tendermint unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)\build\node0\servd:/serv\Z serv/node "./servd tendermint unsafe-reset-all --home=/serv"
+	@docker run --rm -v $(CURDIR)\build\node1\servd:/serv\Z serv/node "./servd tendermint unsafe-reset-all --home=/serv"
+	@docker run --rm -v $(CURDIR)\build\node2\servd:/serv\Z serv/node "./servd tendermint unsafe-reset-all --home=/serv"
+	@docker run --rm -v $(CURDIR)\build\node3\servd:/serv\Z serv/node "./servd tendermint unsafe-reset-all --home=/serv"
 else
-	@docker run --rm -v $(CURDIR)/build/node0/evmosd:/evmos:Z evmos/node "./evmosd tendermint unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/build/node1/evmosd:/evmos:Z evmos/node "./evmosd tendermint unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/build/node2/evmosd:/evmos:Z evmos/node "./evmosd tendermint unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/build/node3/evmosd:/evmos:Z evmos/node "./evmosd tendermint unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)/build/node0/servd:/serv:Z serv/node "./servd tendermint unsafe-reset-all --home=/serv"
+	@docker run --rm -v $(CURDIR)/build/node1/servd:/serv:Z serv/node "./servd tendermint unsafe-reset-all --home=/serv"
+	@docker run --rm -v $(CURDIR)/build/node2/servd:/serv:Z serv/node "./servd tendermint unsafe-reset-all --home=/serv"
+	@docker run --rm -v $(CURDIR)/build/node3/servd:/serv:Z serv/node "./servd tendermint unsafe-reset-all --home=/serv"
 endif
 
 # Clean testnet
@@ -526,7 +526,7 @@ localnet-show-logstream:
 ###                                Releasing                                ###
 ###############################################################################
 
-PACKAGE_NAME:=github.com/twobitedd/evmos
+PACKAGE_NAME:=github.com/twobitedd/serv
 GOLANG_CROSS_VERSION  = v1.20
 GOPATH ?= '$(HOME)/go'
 release-dry-run:

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/twobitedd/evmos/v12/x/epochs"
-	"github.com/twobitedd/evmos/v12/x/epochs/types"
+	"github.com/twobitedd/serv/v12/x/epochs"
+	"github.com/twobitedd/serv/v12/x/epochs/types"
 )
 
 func (suite *KeeperTestSuite) TestEpochInfoChangesBeginBlockerAndInitGenesis() {

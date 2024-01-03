@@ -15,10 +15,10 @@ import (
 	"github.com/tendermint/tendermint/crypto/tmhash"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtypes "github.com/tendermint/tendermint/types"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/x/evm/keeper"
-	"github.com/twobitedd/evmos/v12/x/evm/statedb"
-	"github.com/twobitedd/evmos/v12/x/evm/types"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/x/evm/keeper"
+	"github.com/twobitedd/serv/v12/x/evm/statedb"
+	"github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestGetHashFn() {

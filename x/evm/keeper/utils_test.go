@@ -12,10 +12,10 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"
-	"github.com/twobitedd/evmos/v12/server/config"
-	"github.com/twobitedd/evmos/v12/testutil"
-	"github.com/twobitedd/evmos/v12/x/evm/statedb"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/server/config"
+	"github.com/twobitedd/serv/v12/testutil"
+	"github.com/twobitedd/serv/v12/x/evm/statedb"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) EvmDenom() string {

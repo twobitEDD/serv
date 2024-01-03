@@ -1,12 +1,12 @@
 syntax = "proto3";
-package evmos.recovery.v1;
+package serv.recovery.v1;
 
 import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
-import "evmos/recovery/v1/genesis.proto";
+import "serv/recovery/v1/genesis.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/twobitedd/evmos/v12/x/recovery/types";
+option go_package = "github.com/twobitedd/serv/v12/x/recovery/types";
 
 // Msg defines the recovery Msg service.
 service Msg {

@@ -14,10 +14,10 @@ import (
 
 	proto "github.com/gogo/protobuf/proto"
 
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/encoding"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/encoding"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 
 	"github.com/stretchr/testify/require"
 )

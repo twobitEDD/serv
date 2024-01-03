@@ -13,12 +13,12 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	ibctypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	"github.com/stretchr/testify/suite"
-	"github.com/twobitedd/evmos/v12/app"
-	v11 "github.com/twobitedd/evmos/v12/app/upgrades/v11"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	feemarkettypes "github.com/twobitedd/evmos/v12/x/feemarket/types"
+	"github.com/twobitedd/serv/v12/app"
+	v11 "github.com/twobitedd/serv/v12/app/upgrades/v11"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	feemarkettypes "github.com/twobitedd/serv/v12/x/feemarket/types"
 
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
@@ -26,14 +26,14 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
-	"github.com/twobitedd/evmos/v12/utils"
+	"github.com/twobitedd/serv/v12/utils"
 )
 
 type UpgradeTestSuite struct {
 	suite.Suite
 
 	ctx     sdk.Context
-	app     *app.Evmos
+	app     *app.Serv
 	consKey cryptotypes.PubKey
 }
 
@@ -153,7 +153,7 @@ func (suite *UpgradeTestSuite) TestMigrateEscrowAcc() {
 func (suite *UpgradeTestSuite) TestDistributeRewards() {
 	// define constants
 	mainnetChainID := utils.MainnetChainID + "-4"
-	communityPool := sdk.MustAccAddressFromBech32("evmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8974jnh")
+	communityPool := sdk.MustAccAddressFromBech32("sx1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8974jnh")
 	fundingAcc := sdk.MustAccAddressFromBech32(v11.FundingAccount)
 
 	// checks on reward amounts
@@ -188,7 +188,7 @@ func (suite *UpgradeTestSuite) TestDistributeRewards() {
 	suite.Require().Equal(expRewards, actualRewards)
 
 	expCommPoolBalance := balance.Sub(expRewards)
-	noRewardAddr := sdk.MustAccAddressFromBech32("evmos1009egsf8sk3puq3aynt8eymmcqnneezkkvceav")
+	noRewardAddr := sdk.MustAccAddressFromBech32("sx1009egsf8sk3puq3aynt8eymmcqnneezkkvceav")
 
 	testCases := []struct {
 		name               string

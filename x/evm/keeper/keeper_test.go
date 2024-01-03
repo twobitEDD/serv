@@ -6,10 +6,10 @@ import (
 
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	evmostypes "github.com/twobitedd/evmos/v12/types"
-	"github.com/twobitedd/evmos/v12/x/evm/keeper"
-	"github.com/twobitedd/evmos/v12/x/evm/statedb"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	servtypes "github.com/twobitedd/serv/v12/types"
+	"github.com/twobitedd/serv/v12/x/evm/keeper"
+	"github.com/twobitedd/serv/v12/x/evm/statedb"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 
 	"github.com/ethereum/go-ethereum/common"
 
@@ -36,15 +36,15 @@ func (suite *KeeperTestSuite) TestWithChainID() {
 			true,
 		},
 		{
-			"success - Evmos mainnet chain ID",
-			"evmos_9001-2",
-			9001,
+			"success - Serv mainnet chain ID",
+			"serv_53970-2",
+			53970,
 			false,
 		},
 		{
-			"success - Evmos testnet chain ID",
-			"evmos_9000-4",
-			9000,
+			"success - Serv testnet chain ID",
+			"serv_43970-4",
+			43970,
 			false,
 		},
 	}
@@ -124,7 +124,7 @@ func (suite *KeeperTestSuite) TestGetAccountStorage() {
 			tc.malleate()
 			i := 0
 			suite.app.AccountKeeper.IterateAccounts(suite.ctx, func(account authtypes.AccountI) bool {
-				ethAccount, ok := account.(evmostypes.EthAccountI)
+				ethAccount, ok := account.(servtypes.EthAccountI)
 				if !ok {
 					// ignore non EthAccounts
 					return false

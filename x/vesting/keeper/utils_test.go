@@ -19,19 +19,19 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/twobitedd/evmos/v12/app"
-	cosmosante "github.com/twobitedd/evmos/v12/app/ante/cosmos"
-	evmante "github.com/twobitedd/evmos/v12/app/ante/evm"
-	"github.com/twobitedd/evmos/v12/contracts"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	"github.com/twobitedd/evmos/v12/encoding"
-	"github.com/twobitedd/evmos/v12/testutil"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	evmostypes "github.com/twobitedd/evmos/v12/types"
-	"github.com/twobitedd/evmos/v12/utils"
-	epochstypes "github.com/twobitedd/evmos/v12/x/epochs/types"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
-	"github.com/twobitedd/evmos/v12/x/vesting/types"
+	"github.com/twobitedd/serv/v12/app"
+	cosmosante "github.com/twobitedd/serv/v12/app/ante/cosmos"
+	evmante "github.com/twobitedd/serv/v12/app/ante/evm"
+	"github.com/twobitedd/serv/v12/contracts"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/serv/v12/encoding"
+	"github.com/twobitedd/serv/v12/testutil"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	servtypes "github.com/twobitedd/serv/v12/types"
+	"github.com/twobitedd/serv/v12/utils"
+	epochstypes "github.com/twobitedd/serv/v12/x/epochs/types"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/x/vesting/types"
 
 	"github.com/stretchr/testify/require"
 )
@@ -56,7 +56,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 
 	// Set Context
 	header := testutil.NewHeader(
-		1, time.Now().UTC(), "evmos_9001-1", suite.consAddress, nil, nil,
+		1, time.Now().UTC(), "serv_53970-1", suite.consAddress, nil, nil,
 	)
 	suite.ctx = suite.app.BaseApp.NewContext(false, header)
 
@@ -80,7 +80,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 		suite.app.EpochsKeeper.SetEpochInfo(suite.ctx, epoch)
 	}
 
-	acc := &evmostypes.EthAccount{
+	acc := &servtypes.EthAccount{
 		BaseAccount: authtypes.NewBaseAccount(sdk.AccAddress(suite.address.Bytes()), nil, 0, 0),
 		CodeHash:    common.BytesToHash(crypto.Keccak256(nil)).String(),
 	}
@@ -219,7 +219,7 @@ func delegate(clawbackAccount *types.ClawbackVestingAccount, amount sdkmath.Int)
 	addr, err := sdk.AccAddressFromBech32(clawbackAccount.Address)
 	s.Require().NoError(err)
 
-	val, err := sdk.ValAddressFromBech32("evmosvaloper1z3t55m0l9h0eupuz3dp5t5cypyv674jjn4d6nn")
+	val, err := sdk.ValAddressFromBech32("servvaloper1z3t55m0l9h0eupuz3dp5t5cypyv674jjn4d6nn")
 	s.Require().NoError(err)
 	delegateMsg := stakingtypes.NewMsgDelegate(addr, val, sdk.NewCoin(utils.BaseDenom, amount))
 

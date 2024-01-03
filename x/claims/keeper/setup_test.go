@@ -12,9 +12,9 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/stretchr/testify/suite"
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/x/claims/types"
-	evm "github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/x/claims/types"
+	evm "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 var s *KeeperTestSuite
@@ -24,7 +24,7 @@ type KeeperTestSuite struct {
 
 	ctx sdk.Context
 
-	app            *app.Evmos
+	app            *app.Serv
 	queryClient    types.QueryClient
 	queryClientEvm evm.QueryClient
 	address        common.Address

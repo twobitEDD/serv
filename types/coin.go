@@ -1,18 +1,18 @@
-// Copyright 2022 Evmos Foundation
-// This file is part of the Evmos Network packages.
+// Copyright 2022 Serv Foundation
+// This file is part of the Serv Network packages.
 //
-// Evmos is free software: you can redistribute it and/or modify
+// Serv is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The Evmos packages are distributed in the hope that it will be useful,
+// The Serv packages are distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
+// along with the Serv packages. If not, see https://github.com/twobitedd/serv/blob/main/LICENSE
 package types
 
 import (
@@ -24,17 +24,17 @@ import (
 )
 
 const (
-	// AttoEvmos defines the default coin denomination used in Evmos in:
+	// AttoServ defines the default coin denomination used in Serv in:
 	//
 	// - Staking parameters: denomination used as stake in the dPoS chain
 	// - Mint parameters: denomination minted due to fee distribution rewards
 	// - Governance parameters: denomination used for spam prevention in proposal deposits
 	// - Crisis parameters: constant fee denomination used for spam prevention to check broken invariant
-	// - EVM parameters: denomination used for running EVM state transitions in Evmos.
-	AttoEvmos string = "aevmos"
+	// - EVM parameters: denomination used for running EVM state transitions in Serv.
+	AttoServ string = "aserv"
 
-	// BaseDenomUnit defines the base denomination unit for Evmos.
-	// 1 evmos = 1x10^{BaseDenomUnit} aevmos
+	// BaseDenomUnit defines the base denomination unit for Serv.
+	// 1 serv = 1x10^{BaseDenomUnit} aserv
 	BaseDenomUnit = 18
 
 	// DefaultGasPrice is default gas price for evm transactions
@@ -44,20 +44,20 @@ const (
 // PowerReduction defines the default power reduction value for staking
 var PowerReduction = sdkmath.NewIntFromBigInt(new(big.Int).Exp(big.NewInt(10), big.NewInt(BaseDenomUnit), nil))
 
-// NewEvmosCoin is a utility function that returns an "aevmos" coin with the given sdkmath.Int amount.
+// NewServCoin is a utility function that returns an "aserv" coin with the given sdkmath.Int amount.
 // The function will panic if the provided amount is negative.
-func NewEvmosCoin(amount sdkmath.Int) sdk.Coin {
-	return sdk.NewCoin(AttoEvmos, amount)
+func NewServCoin(amount sdkmath.Int) sdk.Coin {
+	return sdk.NewCoin(AttoServ, amount)
 }
 
-// NewEvmosDecCoin is a utility function that returns an "aevmos" decimal coin with the given sdkmath.Int amount.
+// NewServDecCoin is a utility function that returns an "aserv" decimal coin with the given sdkmath.Int amount.
 // The function will panic if the provided amount is negative.
-func NewEvmosDecCoin(amount sdkmath.Int) sdk.DecCoin {
-	return sdk.NewDecCoin(AttoEvmos, amount)
+func NewServDecCoin(amount sdkmath.Int) sdk.DecCoin {
+	return sdk.NewDecCoin(AttoServ, amount)
 }
 
-// NewEvmosCoinInt64 is a utility function that returns an "aevmos" coin with the given int64 amount.
+// NewServCoinInt64 is a utility function that returns an "aserv" coin with the given int64 amount.
 // The function will panic if the provided amount is negative.
-func NewEvmosCoinInt64(amount int64) sdk.Coin {
-	return sdk.NewInt64Coin(AttoEvmos, amount)
+func NewServCoinInt64(amount int64) sdk.Coin {
+	return sdk.NewInt64Coin(AttoServ, amount)
 }

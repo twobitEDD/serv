@@ -8,8 +8,8 @@
 ## USAGE RUNDOWN
 # Not for use on live nodes
 # For use when testing.
-# Assumes that ~/.evmosd doesn't exist
-# can be modified to suit your purposes if ~/.evmosd does already exist
+# Assumes that ~/.servd doesn't exist
+# can be modified to suit your purposes if ~/.servd does already exist
 
 
 set -uxe
@@ -31,11 +31,11 @@ go install ./...
 # go install -ldflags '-w -s -X github.com/cosmos/cosmos-sdk/types.DBBackend=boltdb' -tags boltdb ./...
 
 # Initialize chain.
-evmosd init test --chain-id evmos_9000-1
+servd init test --chain-id serv_43970-1
 
 # Get Genesis
-wget https://archive.evmos.org/mainnet/genesis.json
-mv genesis.json ~/.evmosd/config/
+wget https://archive.servprotocol.io/mainnet/genesis.json
+mv genesis.json ~/.servd/config/
 
 
 # Get "trust_hash" and "trust_height".
@@ -59,4 +59,4 @@ export SERVD_STATESYNC_TRUST_HASH=$TRUST_HASH
 export SERVD_P2P_SEEDS=$(curl -s https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/chain.json | jq -r '[foreach .peers.seeds[] as $item (""; "\($item.id)@\($item.address)")] | join(",")')
 
 # Start chain.
-evmosd start --x-crisis-skip-assert-invariants 
+servd start --x-crisis-skip-assert-invariants 

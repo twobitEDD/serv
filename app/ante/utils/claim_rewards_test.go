@@ -4,10 +4,10 @@ import (
 	"time"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	anteutils "github.com/twobitedd/evmos/v12/app/ante/utils"
-	"github.com/twobitedd/evmos/v12/testutil"
-	testutiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/utils"
+	anteutils "github.com/twobitedd/serv/v12/app/ante/utils"
+	"github.com/twobitedd/serv/v12/testutil"
+	testutiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/utils"
 )
 
 // TestClaimStakingRewardsIfNecessary tests the ClaimStakingRewardsIfNecessary function

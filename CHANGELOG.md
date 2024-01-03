@@ -112,7 +112,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (claims) [#1126](https://github.com/evmos/evmos/pull/1126) Remove old x/params migration logic
 - (vesting) [#1155](https://github.com/evmos/evmos/pull/1155) Migrate deprecated event emitting to new `TypedEvent`
 - (docs) [#1361](https://github.com/evmos/evmos/pull/1361) Update `vesting` module docs with new behavior for `ClawbackVestingAccounts`
-- (evm) [#1349](https://github.com/evmos/evmos/pull/1349) Restrict the Evmos codebase from working with chain IDs other than `9000` and `9001`
+- (evm) [#1349](https://github.com/evmos/evmos/pull/1349) Restrict the Serv codebase from working with chain IDs other than `9000` and `9001`
 - (test) [#1352](https://github.com/evmos/evmos/pull/1352) Deprecate usage of `aphoton` as denomination on tests
 - (test) [#1369](https://github.com/evmos/evmos/pull/1369) Refactor code to use `BaseDenom` for simplification
 - (cli) [#1371](https://github.com/evmos/evmos/pull/1371) Improve cli error messages
@@ -372,7 +372,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 - (claims) [\#605](https://github.com/evmos/evmos/pull/605) Remove `claims-` prefix in CLI query commands.
 - (erc20) [\#592](https://github.com/evmos/evmos/pull/592) Finish module completeness audit.
-- (analytics) [\#637](https://github.com/evmos/evmos/pull/637) Add telemetry to Evmos modules.
+- (analytics) [\#637](https://github.com/evmos/evmos/pull/637) Add telemetry to Serv modules.
 - (vesting) [\#643](https://github.com/evmos/evmos/pull/643) Remove the `create-vesting-account` CLI command from Cosmos SDK in favor of the clawback vesting accounts.
 
 ### Improvements
@@ -405,7 +405,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### API Breaking
 
-- (upgrade) [\#557](https://github.com/evmos/evmos/pull/557) Update Evmos go.mod version `v3` -> `v4`
+- (upgrade) [\#557](https://github.com/evmos/evmos/pull/557) Update Serv go.mod version `v3` -> `v4`
 - (erc20) [\#544](https://github.com/evmos/evmos/pull/544) Remove `updateTokenPairERC20Proposal` functionality rename `relay` to `conversion`
 - (inflation) [\#536](https://github.com/evmos/evmos/pull/536) Rename inflation endpoint `/evmos/inflation/v1/total_supply` -> `/evmos/inflation/v1/circulating_supply`
 
@@ -440,7 +440,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### API Breaking
 
-- [\#415](https://github.com/evmos/evmos/pull/415) Bump Evmos go version to v3
+- [\#415](https://github.com/evmos/evmos/pull/415) Bump Serv go version to v3
 
 ### Bug Fixes
 
@@ -458,7 +458,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (deps) [\#478](https://github.com/evmos/evmos/pull/478) Bump Cosmos SDK to [`v0.45.3`](https://github.com/cosmos/cosmos-sdk/releases/tag/v0.45.3)
 - (deps) [\#478](https://github.com/evmos/evmos/pull/478) Bump Ethermint to [`v0.14.0`](https://github.com/evmos/ethermint/releases/tag/v0.14.0)
 - (vesting) [\#468](https://github.com/evmos/evmos/pull/468) Use coins `Min` function from Cosmos SDK.
-- (cmd) [\#446](https://github.com/evmos/evmos/pull/446) Update `migrate` command to migrate Evmos, Ethermint and Cosmos SDK modules.
+- (cmd) [\#446](https://github.com/evmos/evmos/pull/446) Update `migrate` command to migrate Serv, Ethermint and Cosmos SDK modules.
 - (app) [\#446](https://github.com/evmos/evmos/pull/446) Refactor upgrade code.
 - (ibc) [\#412](https://github.com/evmos/evmos/pull/412) Introduce boilerplate struct for IBC applications.
 - (deps) [\#402](https://github.com/evmos/evmos/pull/402) Bump IBC go to [`v3.0.0`](https://github.com/cosmos/ibc-go/releases/tag/v3.0.0)
@@ -581,7 +581,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (app) [\#128](https://github.com/evmos/evmos/pull/128) Add ibc-go `TestingApp` interface.
 - (ci) [\#117](https://github.com/evmos/evmos/pull/117) Enable automatic backport of PRs.
 - (deps) [\#135](https://github.com/evmos/evmos/pull/135) Bump Ethermint version to [`v0.9.0`](https://github.com/evmos/ethermint/releases/tag/v0.9.0)
-- (ci) [\#136](https://github.com/evmos/evmos/pull/136) Deploy `evmos` docker container to [docker hub](https://hub.docker.com/u/tharsishq) for every versioned releases
+- (ci) [\#136](https://github.com/evmos/evmos/pull/136) Deploy `evmos` docker container to [docker hub](https://hub.docker.com/u/twobitedd) for every versioned releases
 
 ### Bug Fixes
 

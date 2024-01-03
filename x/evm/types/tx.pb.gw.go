@@ -156,6 +156,6 @@ func RegisterMsgHandlerClient(ctx context.Context, mux *runtime.ServeMux, client
 	return nil
 }
 
-var pattern_Msg_EthereumTx_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"evmos", "evm", "v1", "ethereum_tx"}, "", runtime.AssumeColonVerbOpt(false)))
+var pattern_Msg_EthereumTx_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"serv", "evm", "v1", "ethereum_tx"}, "", runtime.AssumeColonVerbOpt(false)))
 
 var forward_Msg_EthereumTx_0 = runtime.ForwardResponseMessage

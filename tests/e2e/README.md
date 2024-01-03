@@ -1,9 +1,9 @@
 # End-to-End Testing Suite
 
 The End-to-End (E2E) testing suite provides an environment
-for running end-to-end tests on Evmos.
+for running end-to-end tests on Serv.
 It is used for testing chain upgrades,
-as it allows for initializing multiple Evmos chains with different versions.
+as it allows for initializing multiple Serv chains with different versions.
 
 - [End-to-End Testing Suite](#end-to-end-testing-suite)
     - [Quick Start](#quick-start)
@@ -34,23 +34,23 @@ This logic utilizes parameters that can be set manually(if necessary):
 # after upgrading
 E2E_SKIP_CLEANUP := false
 
-# version(s) of initial evmos node(s) that will be upgraded, tag e.g. 'v9.1.0'
+# version(s) of initial serv node(s) that will be upgraded, tag e.g. 'v9.1.0'
 # to use multiple upgrades separate the versions with a forward slash, e.g.
 # 'v10.0.1/v11.0.0-rc1'
 INITIAL_VERSION
 
-# version of upgraded evmos node that will replace the initial node, tag e.g.
+# version of upgraded serv node that will replace the initial node, tag e.g.
 # 'v10.0.0'
 TARGET_VERSION
 
 # mount point for the upgraded node container, to mount new node version to
-# previous node state folder. By default this is './build/.evmosd:/root/.evmosd'
+# previous node state folder. By default this is './build/.servd:/root/.servd'
 # More info at https://docs.docker.com/engine/reference/builder/#volume
 MOUNT_PATH
 
-# '--chain-id' evmos cli parameter, used to start nodes with a specific
+# '--chain-id' serv cli parameter, used to start nodes with a specific
 # chain-id and submit proposals
-# By default this is 'evmos_9000-1'
+# By default this is 'serv_43970-1'
 CHAIN_ID
 ```
 
@@ -65,7 +65,7 @@ make test-e2e E2E_SKIP_CLEANUP=true INITIAL_VERSION=<tag> TARGET_VERSION=<tag>
 
 Testing a chain upgrade is a multi-step process:
 
-1. Build a docker image for the evmos target version
+1. Build a docker image for the serv target version
 (local repo by default, if no explicit `TARGET_VERSION` provided as argument)
 (e.g. `v10.0.0`)
 2. Run tests
@@ -73,7 +73,7 @@ Testing a chain upgrade is a multi-step process:
 4. The node will submit, deposit and vote for an upgrade proposal
 for upgrading to the `TARGET_VERSION`.
 5. After block `50` is reached,
-the test suite exports `/.evmosd` folder from the docker container
+the test suite exports `/.servd` folder from the docker container
 to the local `build/` folder and then purges the container.
 6. Suite will mount the node with `TARGET_VERSION`
 to the local `build/` dir and start the node.
@@ -86,12 +86,12 @@ and will execute the upgrade.
 
 The `e2e` package defines an integration testing suite
 used for full end-to-end testing functionality.
-This package is decoupled from depending on the Evmos codebase.
+This package is decoupled from depending on the Serv codebase.
 It initializes the chains for testing via Docker.  
 As a result, the test suite may provide the
-desired Evmos version to Docker containers during the initialization.
+desired Serv version to Docker containers during the initialization.
 This design allows for the opportunity of testing chain upgrades
-by providing an older Evmos version to the container,
+by providing an older Serv version to the container,
 performing the chain upgrade,
 and running the latest test suite.  
 Here's an overview of the files:
@@ -110,7 +110,7 @@ that utilize the testing suite.
 
 The `e2e` package defines an upgrade `Manager` abstraction.
 Suite will utilize `Manager`'s functions
-to run different versions of evmos containers,
+to run different versions of serv containers,
 propose, vote, delegate and query nodes.
 
 * `manager.go`: defines core manager logic for running containers,
@@ -126,16 +126,16 @@ responsible for setting node container parameters before run.
 
 If `INITIAL_VERSION` is provided as an argument,
 node container(s) with the corresponding version(s)
-will be pulled from [DockerHub](https://hub.docker.com/r/tharsishq/evmos/tags).
+will be pulled from [DockerHub](https://hub.docker.com/r/twobitedd/serv/tags).
 If it is not specified,
 the test suite retrieves the second-to-last upgrade version
-from the local codebase (in the `evmos/app/upgrades` folder)
+from the local codebase (in the `serv/app/upgrades` folder)
 according to [Semantic Versioning](https://semver.org/).
 
 If `TARGET_VERSION` is specified,
 the corresponding container will also be pulled from DockerHub.
 When not specified, the test suite will retrieve the latest upgrade version
-from `evmos/app/upgrades`.
+from `serv/app/upgrades`.
 
 ### Testing Results
 
@@ -145,7 +145,7 @@ In case of a successful upgrade,
 the script will print the following output (example):
 
 ```log
-ok  	github.com/twobitedd/evmos/v9/tests/e2e	174.137s.
+ok  	github.com/twobitedd/serv/v9/tests/e2e	174.137s.
 ```
 
 If the target node version fails to start,
@@ -153,7 +153,7 @@ the logs from the docker container will be printed:
 
 ```log
 Error:  Received unexpected error:
-        can't start evmos node, container exit code: 2
+        can't start serv node, container exit code: 2
 
         [error stream]:
 
@@ -165,7 +165,7 @@ Error:  Received unexpected error:
         github.com/cosmos/cosmos-sdk/baseapp.SetMinGasPrices({0xc0013563e7?, ...
             github.com/cosmos/cosmos-sdk@v0.46.5/baseapp/options.go:29 +0xd9
         main.appCreator.newApp({{{0x3399b40, 0xc000ec1db8}, {0x33ac0f8, 0xc00...
-            github.com/twobitedd/evmos/v10/cmd/evmosd/root.go:243 +0x2ca
+            github.com/twobitedd/serv/v10/cmd/evmosd/root.go:243 +0x2ca
         github.com/evmos/ethermint/server.startInProcess(_, {{0x0, 0x0, 0x0},...
             github.com/evmos/ethermint@v0.20.0-rc2/server/start.go:304 +0x9c5
         github.com/evmos/ethermint/server.StartCmd.func2(0xc001620600?, {0xc0...
@@ -181,7 +181,7 @@ Error:  Received unexpected error:
         github.com/cosmos/cosmos-sdk/server/cmd.Execute(0x2170d50?, {0x26d961...
             github.com/cosmos/cosmos-sdk@v0.46.5/server/cmd/execute.go:36 +0x...
         main.main()
-            github.com/twobitedd/evmos/v10/cmd/evmosd/main.go:20 +0x45
+            github.com/twobitedd/serv/v10/cmd/evmosd/main.go:20 +0x45
 
 
         [output stream]:

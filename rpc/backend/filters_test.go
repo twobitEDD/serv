@@ -6,9 +6,9 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	tmtypes "github.com/tendermint/tendermint/types"
-	"github.com/twobitedd/evmos/v12/rpc/backend/mocks"
-	ethrpc "github.com/twobitedd/evmos/v12/rpc/types"
-	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/rpc/backend/mocks"
+	ethrpc "github.com/twobitedd/serv/v12/rpc/types"
+	evmtypes "github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 func (suite *BackendTestSuite) TestGetLogs() {

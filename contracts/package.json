@@ -1,5 +1,5 @@
 {
-  "name": "evmos",
+  "name": "serv",
   "version": "1.0.0",
   "description": "<!-- parent:   order: false -->",
   "main": "index.js",
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/twobitedd/evmos.git"
+    "url": "git+https://github.com/twobitedd/serv.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/twobitedd/evmos/issues"
+    "url": "https://github.com/twobitedd/serv/issues"
   },
-  "homepage": "https://github.com/twobitedd/evmos#readme"
+  "homepage": "https://github.com/twobitedd/serv#readme"
 }

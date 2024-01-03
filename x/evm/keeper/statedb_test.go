@@ -16,10 +16,10 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
-	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
-	"github.com/twobitedd/evmos/v12/x/evm/statedb"
-	"github.com/twobitedd/evmos/v12/x/evm/types"
+	"github.com/twobitedd/serv/v12/crypto/ethsecp256k1"
+	utiltx "github.com/twobitedd/serv/v12/testutil/tx"
+	"github.com/twobitedd/serv/v12/x/evm/statedb"
+	"github.com/twobitedd/serv/v12/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestCreateAccount() {

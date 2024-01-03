@@ -1,18 +1,18 @@
-// Copyright 2022 Evmos Foundation
-// This file is part of the Evmos Network packages.
+// Copyright 2022 Serv Foundation
+// This file is part of the Serv Network packages.
 //
-// Evmos is free software: you can redistribute it and/or modify
+// Serv is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The Evmos packages are distributed in the hope that it will be useful,
+// The Serv packages are distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
+// along with the Serv packages. If not, see https://github.com/twobitedd/serv/blob/main/LICENSE
 
 package upgrade
 
@@ -28,17 +28,17 @@ import (
 	"github.com/hashicorp/go-version"
 )
 
-// EvmosVersions is a custom comparator for sorting semver version strings.
-type EvmosVersions []string
+// ServVersions is a custom comparator for sorting semver version strings.
+type ServVersions []string
 
 // Len is the number of stored versions..
-func (v EvmosVersions) Len() int { return len(v) }
+func (v ServVersions) Len() int { return len(v) }
 
 // Swap swaps the elements with indexes i and j. It is needed to sort the slice.
-func (v EvmosVersions) Swap(i, j int) { v[i], v[j] = v[j], v[i] }
+func (v ServVersions) Swap(i, j int) { v[i], v[j] = v[j], v[i] }
 
 // Less compares semver versions strings properly
-func (v EvmosVersions) Less(i, j int) bool {
+func (v ServVersions) Less(i, j int) bool {
 	v1, err := version.NewVersion(v[i])
 	if err != nil {
 		log.Fatalf("couldn't interpret version as SemVer string: %s: %s", v[i], err.Error())
@@ -58,7 +58,7 @@ func CheckLegacyProposal(version string) bool {
 	}
 
 	// check if the version is lower than v10.x.x
-	cmp := EvmosVersions([]string{version, "v10.0.0"})
+	cmp := ServVersions([]string{version, "v10.0.0"})
 	isLegacyProposal := !cmp.Less(0, 1)
 
 	return isLegacyProposal
@@ -90,12 +90,12 @@ func RetrieveUpgradesList(upgradesPath string) ([]string, error) {
 		versions[i] = v[1 : len(v)-1]
 	}
 
-	sort.Sort(EvmosVersions(versions))
+	sort.Sort(ServVersions(versions))
 
 	return versions, nil
 }
 
-// ExportState executes the  'docker cp' command to copy container .evmosd dir
+// ExportState executes the  'docker cp' command to copy container .servd dir
 // to the specified target dir (local)
 //
 // See https://docs.docker.com/engine/reference/commandline/cp/
@@ -104,7 +104,7 @@ func (m *Manager) ExportState(targetDir string) error {
 	cmd := exec.Command(
 		"docker",
 		"cp",
-		fmt.Sprintf("%s:/root/.evmosd", m.ContainerID()),
+		fmt.Sprintf("%s:/root/.servd", m.ContainerID()),
 		targetDir,
 	)
 	return cmd.Run()

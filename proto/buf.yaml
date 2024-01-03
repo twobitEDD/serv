@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/twobitedd/evmos
+name: buf.build/twobitedd/serv
 deps:
   - buf.build/cosmos/cosmos-sdk
   - buf.build/cosmos/cosmos-proto

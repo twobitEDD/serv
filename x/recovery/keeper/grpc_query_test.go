@@ -3,7 +3,7 @@ package keeper_test
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/twobitedd/evmos/v12/x/recovery/types"
+	"github.com/twobitedd/serv/v12/x/recovery/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryParams() {

@@ -9,11 +9,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
-	"github.com/twobitedd/evmos/v12/app"
-	"github.com/twobitedd/evmos/v12/encoding"
-	v3 "github.com/twobitedd/evmos/v12/x/claims/migrations/v3"
-	v3types "github.com/twobitedd/evmos/v12/x/claims/migrations/v3/types"
-	"github.com/twobitedd/evmos/v12/x/claims/types"
+	"github.com/twobitedd/serv/v12/app"
+	"github.com/twobitedd/serv/v12/encoding"
+	v3 "github.com/twobitedd/serv/v12/x/claims/migrations/v3"
+	v3types "github.com/twobitedd/serv/v12/x/claims/migrations/v3/types"
+	"github.com/twobitedd/serv/v12/x/claims/types"
 )
 
 type mockSubspace struct {

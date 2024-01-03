@@ -4,17 +4,17 @@
       "description": 1,
       "denom_units": [
         {
-          "denom": "aevmos",
+          "denom": "aserv",
           "exponent": 0
         },
         {
-          "denom": "evmos",
+          "denom": "serv",
           "exponent": 18
         }
       ],
-      "base": "aevmos",
-      "display": "aevmos",
-      "name": "aevmos",
+      "base": "aserv",
+      "display": "aserv",
+      "name": "aserv",
       "symbol": "SERV"
     }
   ]
