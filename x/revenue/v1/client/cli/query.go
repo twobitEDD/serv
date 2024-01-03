@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package cli
 
@@ -26,7 +26,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/evmos/evmos/v12/x/revenue/v1/types"
+	"github.com/twobitedd/evmos/v12/x/revenue/v1/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

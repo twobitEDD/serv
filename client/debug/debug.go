@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 package debug
 
 import (
@@ -28,11 +28,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	authclient "github.com/cosmos/cosmos-sdk/x/auth/client"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/evmos/evmos/v12/ethereum/eip712"
-	evmos "github.com/evmos/evmos/v12/types"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/tendermint/tendermint/libs/bytes"
+	"github.com/twobitedd/evmos/v12/ethereum/eip712"
+	evmos "github.com/twobitedd/evmos/v12/types"
 )
 
 // Cmd creates a main CLI command

@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package main
 
@@ -51,21 +51,21 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 
-	evmosclient "github.com/evmos/evmos/v12/client"
-	"github.com/evmos/evmos/v12/client/debug"
-	"github.com/evmos/evmos/v12/encoding"
-	"github.com/evmos/evmos/v12/ethereum/eip712"
-	evmosserver "github.com/evmos/evmos/v12/server"
-	servercfg "github.com/evmos/evmos/v12/server/config"
-	srvflags "github.com/evmos/evmos/v12/server/flags"
+	evmosclient "github.com/twobitedd/evmos/v12/client"
+	"github.com/twobitedd/evmos/v12/client/debug"
+	"github.com/twobitedd/evmos/v12/encoding"
+	"github.com/twobitedd/evmos/v12/ethereum/eip712"
+	evmosserver "github.com/twobitedd/evmos/v12/server"
+	servercfg "github.com/twobitedd/evmos/v12/server/config"
+	srvflags "github.com/twobitedd/evmos/v12/server/flags"
 
-	"github.com/evmos/evmos/v12/app"
-	cmdcfg "github.com/evmos/evmos/v12/cmd/config"
-	evmoskr "github.com/evmos/evmos/v12/crypto/keyring"
+	"github.com/twobitedd/evmos/v12/app"
+	cmdcfg "github.com/twobitedd/evmos/v12/cmd/config"
+	evmoskr "github.com/twobitedd/evmos/v12/crypto/keyring"
 )
 
 const (
-	EnvPrefix = "EVMOS"
+	EnvPrefix = "SERV"
 )
 
 // NewRootCmd creates a new root command for evmosd. It is called once in the

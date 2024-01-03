@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package keyring
 
@@ -22,8 +22,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/crypto/types"
 
 	"github.com/evmos/evmos-ledger-go/ledger"
-	"github.com/evmos/evmos/v12/crypto/ethsecp256k1"
-	"github.com/evmos/evmos/v12/crypto/hd"
+	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/evmos/v12/crypto/hd"
 )
 
 // AppName defines the Ledger app used for signing. Evmos uses the Ethereum app

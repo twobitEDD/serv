@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
-	"github.com/evmos/evmos/v12/x/erc20/types"
 	"github.com/stretchr/testify/require"
+	"github.com/twobitedd/evmos/v12/x/erc20/types"
 )
 
 func TestNewERC20Data(t *testing.T) {

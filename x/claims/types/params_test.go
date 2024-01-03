@@ -7,8 +7,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v12/x/claims/types"
 	"github.com/stretchr/testify/require"
+	"github.com/twobitedd/evmos/v12/x/claims/types"
 )
 
 func TestParamsValidate(t *testing.T) {

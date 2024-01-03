@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
-	"github.com/evmos/evmos/v12/x/erc20/types"
 	"github.com/stretchr/testify/suite"
+	"github.com/twobitedd/evmos/v12/x/erc20/types"
 )
 
 type GenesisTestSuite struct {

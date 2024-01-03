@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package ante
 
@@ -27,14 +27,14 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	ibcante "github.com/cosmos/ibc-go/v6/modules/core/ante"
 	ibckeeper "github.com/cosmos/ibc-go/v6/modules/core/keeper"
-	anteutils "github.com/evmos/evmos/v12/app/ante/utils"
+	anteutils "github.com/twobitedd/evmos/v12/app/ante/utils"
 
-	cosmosante "github.com/evmos/evmos/v12/app/ante/cosmos"
-	evmante "github.com/evmos/evmos/v12/app/ante/evm"
-	evmtypes "github.com/evmos/evmos/v12/x/evm/types"
+	cosmosante "github.com/twobitedd/evmos/v12/app/ante/cosmos"
+	evmante "github.com/twobitedd/evmos/v12/app/ante/evm"
+	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
 
 	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
-	vestingtypes "github.com/evmos/evmos/v12/x/vesting/types"
+	vestingtypes "github.com/twobitedd/evmos/v12/x/vesting/types"
 )
 
 // HandlerOptions defines the list of module keepers required to run the Evmos

@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package keeper
 
@@ -24,10 +24,10 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	evmostypes "github.com/evmos/evmos/v12/types"
-	evmtypes "github.com/evmos/evmos/v12/x/evm/types"
+	evmostypes "github.com/twobitedd/evmos/v12/types"
+	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
 
-	"github.com/evmos/evmos/v12/x/incentives/types"
+	"github.com/twobitedd/evmos/v12/x/incentives/types"
 )
 
 var _ evmtypes.EvmHooks = Hooks{}

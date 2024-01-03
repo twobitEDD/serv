@@ -6,8 +6,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/evmos/evmos/v12/x/erc20/types"
 	"github.com/stretchr/testify/require"
+	"github.com/twobitedd/evmos/v12/x/erc20/types"
 )
 
 func TestSanitizeERC20Name(t *testing.T) {
@@ -63,7 +63,7 @@ func TestEqualMetadata(t *testing.T) {
 				Base:        "aevmos",
 				Display:     "evmos",
 				Name:        "Evmos",
-				Symbol:      "EVMOS",
+				Symbol:      "SERV",
 				Description: "EVM, staking and governance denom of Evmos",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
@@ -81,7 +81,7 @@ func TestEqualMetadata(t *testing.T) {
 				Base:        "aevmos",
 				Display:     "evmos",
 				Name:        "Evmos",
-				Symbol:      "EVMOS",
+				Symbol:      "SERV",
 				Description: "EVM, staking and governance denom of Evmos",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
@@ -113,7 +113,7 @@ func TestEqualMetadata(t *testing.T) {
 				Base:        "aevmos",
 				Display:     "evmos",
 				Name:        "Evmos",
-				Symbol:      "EVMOS",
+				Symbol:      "SERV",
 				Description: "EVM, staking and governance denom of Evmos",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
@@ -131,7 +131,7 @@ func TestEqualMetadata(t *testing.T) {
 				Base:        "aevmos",
 				Display:     "evmos",
 				Name:        "Evmos",
-				Symbol:      "EVMOS",
+				Symbol:      "SERV",
 				Description: "EVM, staking and governance denom of Evmos",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
@@ -149,7 +149,7 @@ func TestEqualMetadata(t *testing.T) {
 				Base:        "aevmos",
 				Display:     "evmos",
 				Name:        "Evmos",
-				Symbol:      "EVMOS",
+				Symbol:      "SERV",
 				Description: "EVM, staking and governance denom of Evmos",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
@@ -172,7 +172,7 @@ func TestEqualMetadata(t *testing.T) {
 				Base:        "aevmos",
 				Display:     "evmos",
 				Name:        "Evmos",
-				Symbol:      "EVMOS",
+				Symbol:      "SERV",
 				Description: "EVM, staking and governance denom of Evmos",
 				DenomUnits: []*banktypes.DenomUnit{
 					{

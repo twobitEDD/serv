@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 package debug
 
 import (
@@ -29,7 +29,7 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 
-	evmtypes "github.com/evmos/evmos/v12/x/evm/types"
+	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
 
 	stderrors "github.com/pkg/errors"
 
@@ -39,9 +39,9 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/consensus/ethash"
 	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/evmos/evmos/v12/rpc/backend"
-	rpctypes "github.com/evmos/evmos/v12/rpc/types"
 	"github.com/tendermint/tendermint/libs/log"
+	"github.com/twobitedd/evmos/v12/rpc/backend"
+	rpctypes "github.com/twobitedd/evmos/v12/rpc/types"
 )
 
 // HandlerT keeps track of the cpu profiler and trace execution

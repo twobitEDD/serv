@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package claims
 
@@ -24,8 +24,8 @@ import (
 	"github.com/cosmos/ibc-go/v6/modules/core/exported"
 
 	clienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
-	"github.com/evmos/evmos/v12/ibc"
-	"github.com/evmos/evmos/v12/x/claims/keeper"
+	"github.com/twobitedd/evmos/v12/ibc"
+	"github.com/twobitedd/evmos/v12/x/claims/keeper"
 )
 
 var _ porttypes.Middleware = &IBCMiddleware{}

@@ -12,14 +12,14 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package transfer
 
 import (
 	ibctransfer "github.com/cosmos/ibc-go/v6/modules/apps/transfer"
 	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
-	"github.com/evmos/evmos/v12/x/ibc/transfer/keeper"
+	"github.com/twobitedd/evmos/v12/x/ibc/transfer/keeper"
 )
 
 var _ porttypes.IBCModule = IBCModule{}

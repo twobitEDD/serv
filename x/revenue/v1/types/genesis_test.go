@@ -4,9 +4,9 @@ import (
 	"testing"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	utiltx "github.com/evmos/evmos/v12/testutil/tx"
-	"github.com/evmos/evmos/v12/x/revenue/v1/types"
 	"github.com/stretchr/testify/suite"
+	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
+	"github.com/twobitedd/evmos/v12/x/revenue/v1/types"
 )
 
 type GenesisTestSuite struct {

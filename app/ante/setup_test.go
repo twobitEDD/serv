@@ -9,14 +9,14 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/evmos/v12/app"
-	"github.com/evmos/evmos/v12/crypto/ethsecp256k1"
-	"github.com/evmos/evmos/v12/encoding"
-	"github.com/evmos/evmos/v12/testutil"
-	"github.com/evmos/evmos/v12/utils"
-	feemarkettypes "github.com/evmos/evmos/v12/x/feemarket/types"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+	"github.com/twobitedd/evmos/v12/app"
+	"github.com/twobitedd/evmos/v12/crypto/ethsecp256k1"
+	"github.com/twobitedd/evmos/v12/encoding"
+	"github.com/twobitedd/evmos/v12/testutil"
+	"github.com/twobitedd/evmos/v12/utils"
+	feemarkettypes "github.com/twobitedd/evmos/v12/x/feemarket/types"
 )
 
 var s *AnteTestSuite

@@ -8,10 +8,10 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/evmos/evmos/v12/x/erc20/types"
-	"github.com/evmos/evmos/v12/x/evm/statedb"
-	evm "github.com/evmos/evmos/v12/x/evm/types"
 	"github.com/stretchr/testify/mock"
+	"github.com/twobitedd/evmos/v12/x/erc20/types"
+	"github.com/twobitedd/evmos/v12/x/evm/statedb"
+	evm "github.com/twobitedd/evmos/v12/x/evm/types"
 )
 
 var _ types.EVMKeeper = &MockEVMKeeper{}

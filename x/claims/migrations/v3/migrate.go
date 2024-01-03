@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package v3
 
@@ -21,8 +21,8 @@ import (
 
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	v3types "github.com/evmos/evmos/v12/x/claims/migrations/v3/types"
-	"github.com/evmos/evmos/v12/x/claims/types"
+	v3types "github.com/twobitedd/evmos/v12/x/claims/migrations/v3/types"
+	"github.com/twobitedd/evmos/v12/x/claims/types"
 )
 
 // MigrateStore migrates the x/claims module state from the consensus version 2 to

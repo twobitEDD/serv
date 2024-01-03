@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package app
 
@@ -22,8 +22,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	v82 "github.com/evmos/evmos/v12/app/upgrades/v8_2"
-	"github.com/evmos/evmos/v12/utils"
+	v82 "github.com/twobitedd/evmos/v12/app/upgrades/v8_2"
+	"github.com/twobitedd/evmos/v12/utils"
 )
 
 // ScheduleForkUpgrade executes any necessary fork logic for based upon the current

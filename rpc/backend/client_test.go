@@ -10,9 +10,6 @@ import (
 
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/evmos/evmos/v12/rpc/backend/mocks"
-	rpc "github.com/evmos/evmos/v12/rpc/types"
-	evmtypes "github.com/evmos/evmos/v12/x/evm/types"
 	mock "github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 	abci "github.com/tendermint/tendermint/abci/types"
@@ -20,6 +17,9 @@ import (
 	tmrpcclient "github.com/tendermint/tendermint/rpc/client"
 	tmrpctypes "github.com/tendermint/tendermint/rpc/core/types"
 	"github.com/tendermint/tendermint/types"
+	"github.com/twobitedd/evmos/v12/rpc/backend/mocks"
+	rpc "github.com/twobitedd/evmos/v12/rpc/types"
+	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
 )
 
 // Client defines a mocked object that implements the Tendermint JSON-RPC Client

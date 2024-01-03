@@ -4,10 +4,10 @@ import (
 	"time"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/evmos/evmos/v12/app"
-	"github.com/evmos/evmos/v12/testutil"
-	"github.com/evmos/evmos/v12/x/epochs/types"
-	evm "github.com/evmos/evmos/v12/x/evm/types"
+	"github.com/twobitedd/evmos/v12/app"
+	"github.com/twobitedd/evmos/v12/testutil"
+	"github.com/twobitedd/evmos/v12/x/epochs/types"
+	evm "github.com/twobitedd/evmos/v12/x/evm/types"
 )
 
 // Test helpers

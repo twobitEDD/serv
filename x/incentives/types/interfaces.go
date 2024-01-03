@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 
 package types
 
@@ -29,10 +29,10 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/evmos/evmos/v12/x/evm/statedb"
-	evmtypes "github.com/evmos/evmos/v12/x/evm/types"
+	"github.com/twobitedd/evmos/v12/x/evm/statedb"
+	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
 
-	inflationtypes "github.com/evmos/evmos/v12/x/inflation/types"
+	inflationtypes "github.com/twobitedd/evmos/v12/x/inflation/types"
 )
 
 // AccountKeeper defines the expected interface needed to retrieve account info.

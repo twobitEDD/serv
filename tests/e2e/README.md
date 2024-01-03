@@ -145,7 +145,7 @@ In case of a successful upgrade,
 the script will print the following output (example):
 
 ```log
-ok  	github.com/evmos/evmos/v9/tests/e2e	174.137s.
+ok  	github.com/twobitedd/evmos/v9/tests/e2e	174.137s.
 ```
 
 If the target node version fails to start,
@@ -165,7 +165,7 @@ Error:  Received unexpected error:
         github.com/cosmos/cosmos-sdk/baseapp.SetMinGasPrices({0xc0013563e7?, ...
             github.com/cosmos/cosmos-sdk@v0.46.5/baseapp/options.go:29 +0xd9
         main.appCreator.newApp({{{0x3399b40, 0xc000ec1db8}, {0x33ac0f8, 0xc00...
-            github.com/evmos/evmos/v10/cmd/evmosd/root.go:243 +0x2ca
+            github.com/twobitedd/evmos/v10/cmd/evmosd/root.go:243 +0x2ca
         github.com/evmos/ethermint/server.startInProcess(_, {{0x0, 0x0, 0x0},...
             github.com/evmos/ethermint@v0.20.0-rc2/server/start.go:304 +0x9c5
         github.com/evmos/ethermint/server.StartCmd.func2(0xc001620600?, {0xc0...
@@ -181,7 +181,7 @@ Error:  Received unexpected error:
         github.com/cosmos/cosmos-sdk/server/cmd.Execute(0x2170d50?, {0x26d961...
             github.com/cosmos/cosmos-sdk@v0.46.5/server/cmd/execute.go:36 +0x...
         main.main()
-            github.com/evmos/evmos/v10/cmd/evmosd/main.go:20 +0x45
+            github.com/twobitedd/evmos/v10/cmd/evmosd/main.go:20 +0x45
 
 
         [output stream]:

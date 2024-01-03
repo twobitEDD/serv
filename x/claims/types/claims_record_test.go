@@ -5,9 +5,9 @@ import (
 
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	utiltx "github.com/evmos/evmos/v12/testutil/tx"
-	"github.com/evmos/evmos/v12/x/claims/types"
 	"github.com/stretchr/testify/require"
+	utiltx "github.com/twobitedd/evmos/v12/testutil/tx"
+	"github.com/twobitedd/evmos/v12/x/claims/types"
 )
 
 func TestClaimsRecordValidate(t *testing.T) {

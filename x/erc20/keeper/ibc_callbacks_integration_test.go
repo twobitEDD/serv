@@ -12,15 +12,15 @@ import (
 	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/evmos/evmos/v12/app"
-	"github.com/evmos/evmos/v12/contracts"
-	ibctesting "github.com/evmos/evmos/v12/ibc/testing"
-	"github.com/evmos/evmos/v12/testutil"
-	teststypes "github.com/evmos/evmos/v12/types/tests"
-	"github.com/evmos/evmos/v12/utils"
-	claimstypes "github.com/evmos/evmos/v12/x/claims/types"
-	"github.com/evmos/evmos/v12/x/erc20/types"
 	. "github.com/onsi/ginkgo/v2"
+	"github.com/twobitedd/evmos/v12/app"
+	"github.com/twobitedd/evmos/v12/contracts"
+	ibctesting "github.com/twobitedd/evmos/v12/ibc/testing"
+	"github.com/twobitedd/evmos/v12/testutil"
+	teststypes "github.com/twobitedd/evmos/v12/types/tests"
+	"github.com/twobitedd/evmos/v12/utils"
+	claimstypes "github.com/twobitedd/evmos/v12/x/claims/types"
+	"github.com/twobitedd/evmos/v12/x/erc20/types"
 )
 
 var _ = Describe("Convert receiving IBC to Erc20", Ordered, func() {

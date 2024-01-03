@@ -9,7 +9,7 @@ RUN apt-get update \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /go/src/github.com/evmos/evmos
+WORKDIR /go/src/github.com/twobitedd/evmos
 
 COPY ./init-node.sh .
 

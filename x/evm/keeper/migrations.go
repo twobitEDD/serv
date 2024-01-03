@@ -12,14 +12,14 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 package keeper
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	v4 "github.com/evmos/evmos/v12/x/evm/migrations/v4"
-	v5 "github.com/evmos/evmos/v12/x/evm/migrations/v5"
-	"github.com/evmos/evmos/v12/x/evm/types"
+	v4 "github.com/twobitedd/evmos/v12/x/evm/migrations/v4"
+	v5 "github.com/twobitedd/evmos/v12/x/evm/migrations/v5"
+	"github.com/twobitedd/evmos/v12/x/evm/types"
 )
 
 // Migrator is a struct for handling in-place store migrations.

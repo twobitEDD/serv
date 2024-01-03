@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 package server
 
 import (
@@ -61,11 +61,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/server/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v12/indexer"
-	ethdebug "github.com/evmos/evmos/v12/rpc/namespaces/ethereum/debug"
-	"github.com/evmos/evmos/v12/server/config"
-	srvflags "github.com/evmos/evmos/v12/server/flags"
-	evmostypes "github.com/evmos/evmos/v12/types"
+	"github.com/twobitedd/evmos/v12/indexer"
+	ethdebug "github.com/twobitedd/evmos/v12/rpc/namespaces/ethereum/debug"
+	"github.com/twobitedd/evmos/v12/server/config"
+	srvflags "github.com/twobitedd/evmos/v12/server/flags"
+	evmostypes "github.com/twobitedd/evmos/v12/types"
 )
 
 // DBOpener is a function to open `application.db`, potentially with customized options.

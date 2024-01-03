@@ -4,9 +4,9 @@ ARG BRANCH_NAME
 
 WORKDIR /go/src/github.com/evmos/
 
-RUN git clone "https://github.com/evmos/evmos.git"
+RUN git clone "https://github.com/twobitedd/evmos.git"
 
-WORKDIR /go/src/github.com/evmos/evmos
+WORKDIR /go/src/github.com/twobitedd/evmos
 
 RUN apt-get update -y
 
@@ -21,14 +21,14 @@ RUN apt-get update \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /go/src/github.com/evmos/evmos
+WORKDIR /go/src/github.com/twobitedd/evmos
 
 COPY ./init-node.sh .
 
 # perms to make init-node.sh executable
 RUN chmod +x init-node.sh
 
-COPY --from=build-env /go/src/github.com/evmos/evmos/build/evmosd /usr/bin/evmosd
+COPY --from=build-env /go/src/github.com/twobitedd/evmos/build/evmosd /usr/bin/evmosd
 
 EXPOSE 26656 26657 1317 9090 8545 8546
 

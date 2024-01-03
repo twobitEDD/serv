@@ -9,9 +9,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	"github.com/stretchr/testify/require"
 
-	"github.com/evmos/evmos/v12/app"
-	evmosd "github.com/evmos/evmos/v12/cmd/evmosd"
-	"github.com/evmos/evmos/v12/utils"
+	"github.com/twobitedd/evmos/v12/app"
+	evmosd "github.com/twobitedd/evmos/v12/cmd/evmosd"
+	"github.com/twobitedd/evmos/v12/utils"
 )
 
 func TestInitCmd(t *testing.T) {
@@ -36,6 +36,6 @@ func TestAddKeyLedgerCmd(t *testing.T) {
 		fmt.Sprintf("--%s", flags.FlagUseLedger),
 	})
 
-	err := svrcmd.Execute(rootCmd, "EVMOSD", app.DefaultNodeHome)
+	err := svrcmd.Execute(rootCmd, "SERVD", app.DefaultNodeHome)
 	require.Error(t, err)
 }

@@ -12,7 +12,7 @@
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the Evmos packages. If not, see https://github.com/evmos/evmos/blob/main/LICENSE
+// along with the Evmos packages. If not, see https://github.com/twobitedd/evmos/blob/main/LICENSE
 package cosmos
 
 import (
@@ -22,8 +22,8 @@ import (
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/x/authz"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	evmtypes "github.com/evmos/evmos/v12/x/evm/types"
-	vestingtypes "github.com/evmos/evmos/v12/x/vesting/types"
+	evmtypes "github.com/twobitedd/evmos/v12/x/evm/types"
+	vestingtypes "github.com/twobitedd/evmos/v12/x/vesting/types"
 )
 
 // TODO: remove once Cosmos SDK is upgraded to v0.46
