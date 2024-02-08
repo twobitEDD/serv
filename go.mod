@@ -41,8 +41,8 @@ require (
 	github.com/tyler-smith/go-bip39 v1.1.0
 	go.opencensus.io v0.24.0
 	golang.org/x/exp v0.0.0-20230310171629-522b1b587ee0
-	golang.org/x/net v0.12.0
-	golang.org/x/text v0.11.0
+	golang.org/x/net v0.21.0
+	golang.org/x/text v0.14.0
 	google.golang.org/genproto v0.0.0-20230410155749-daa745c078e1
 	google.golang.org/grpc v1.56.2
 	google.golang.org/protobuf v1.31.0
@@ -201,12 +201,12 @@ require (
 	github.com/zondax/hid v0.9.1 // indirect
 	github.com/zondax/ledger-go v0.14.1 // indirect
 	go.etcd.io/bbolt v1.3.6 // indirect
-	golang.org/x/crypto v0.11.0 // indirect
+	golang.org/x/crypto v0.19.0 // indirect
 	golang.org/x/mod v0.9.0 // indirect
 	golang.org/x/oauth2 v0.7.0 // indirect
 	golang.org/x/sync v0.2.0 // indirect
-	golang.org/x/sys v0.10.0 // indirect
-	golang.org/x/term v0.10.0 // indirect
+	golang.org/x/sys v0.17.0 // indirect
+	golang.org/x/term v0.17.0 // indirect
 	golang.org/x/tools v0.7.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/api v0.114.0 // indirect
